@@ -6,7 +6,8 @@ namespace Nexus\Console;
 
 
 use Nexus\CustomCommand\Communication\Provider\CommandProvider as CustomCommandCommandProvider;
-use Nexus\DockerClient\Communication\Provider\CommandProvider;
+use Nexus\DockerClient\Communication\Provider\CommandProvider as DockerCommandProvider;
+use Nexus\Dumper\Communication\Provider\CommandProvider as DumperCommandProvider;
 use Xervice\Console\ConsoleDependencyProvider as XerviceConsoleDependencyProvider;
 
 class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
@@ -36,8 +37,9 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
     private function getCommandProvider()
     {
         return [
-            new CommandProvider(),
-            new CustomCommandCommandProvider()
+            new DockerCommandProvider(),
+            new CustomCommandCommandProvider(),
+            new DumperCommandProvider()
         ];
     }
 }
