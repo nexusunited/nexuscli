@@ -1,5 +1,5 @@
 {
-  "name"             : "nexusnetsoftgmbh/nexuscli",
+  "name"             : "patrickjaja/nexuscli",
   "license"          : "MIT",
   "authors"          : [
     {
@@ -26,5 +26,6 @@
       "Nexus\\": "src/"
     }
   },
+  "minimum-stability": "stable",
   "bin": ["bin/nxscli"]
 }
