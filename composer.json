@@ -27,5 +27,6 @@
     }
   },
   "minimum-stability": "dev",
+  "prefer-stable": false,
   "bin": ["bin/nxscli"]
 }
