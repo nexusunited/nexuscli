@@ -5,5 +5,5 @@ Installation
 ------------
 
 ```
-composer global require nexusnetsoftgmbh/dockercli
+composer global require nexusnetsoftgmbh/dockercli:dev-master
 ```
