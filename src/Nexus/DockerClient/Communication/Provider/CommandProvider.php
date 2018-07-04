@@ -7,6 +7,8 @@ namespace Nexus\DockerClient\Communication\Provider;
 use Nexus\Console\Provider\CommandProviderInterface;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeRmCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeUpCommand;
+use Nexus\DockerClient\Communication\Command\Container\StartContainerCommand;
+use Nexus\DockerClient\Communication\Command\Container\StopContainerCommand;
 use Nexus\DockerClient\Communication\Command\Exec\DockerExecCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeCreateCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeRemoveCommand;
@@ -26,7 +28,9 @@ class CommandProvider implements CommandProviderInterface
             new DockerComposeRmCommand(),
             new VolumeCreateCommand(),
             new VolumeRemoveCommand(),
-            new DockerExecCommand()
+            new DockerExecCommand(),
+            new StartContainerCommand(),
+            new StopContainerCommand()
         ];
 
         return $commands;
