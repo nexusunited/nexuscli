@@ -1,6 +1,8 @@
 NEXUS Docker Client
 ======================
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nexusnetsoftgmbh/nexuscli/badges/quality-score.png)](https://scrutinizer-ci.com/g/nexusnetsoftgmbh/nexuscli)
+
 Installation
 ------------
 
