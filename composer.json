@@ -1,5 +1,5 @@
 {
-  "name"             : "nexusnetsoftgmbh/dockercli",
+  "name"             : "nexusnetsoftgmbh/nexuscli",
   "license"          : "MIT",
   "authors"          : [
     {
@@ -26,5 +26,5 @@
       "Nexus\\": "src/"
     }
   },
-  "bin": ["bin/dockercli"]
+  "bin": ["bin/nxscli"]
 }
