@@ -26,6 +26,6 @@
       "Nexus\\": "src/"
     }
   },
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "bin": ["bin/nxscli"]
 }
