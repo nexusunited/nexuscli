@@ -34,6 +34,8 @@ Example custom command 'LsCommand.php':
 namespace Nexus\CustomCommand\Command;
 
 use Symfony\Component\Console\Input\InputArgument;
+use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Output\OutputInterface;
 use Xervice\Console\Command\AbstractCommand;
 
 class LsCommand extends AbstractCommand
@@ -41,8 +43,8 @@ class LsCommand extends AbstractCommand
     protected function configure()
     {
         $this->setName('custom:ls')
-            ->setDescription('List all files')
-            ->addArgument('path', InputArgument::OPTIONAL, "Path for listing files", './');
+             ->setDescription('List all files')
+             ->addArgument('path', InputArgument::OPTIONAL, "Path for listing files", './');
     }
 
     /**
@@ -52,7 +54,7 @@ class LsCommand extends AbstractCommand
      * @return int|null|void
      * @throws \Core\Locator\Dynamic\ServiceNotParseable
      */
-    protected function execute(\Symfony\Component\Console\Input\InputInterface $input, \Symfony\Component\Console\Output\OutputInterface $output)
+    protected function execute(InputInterface $input, OutputInterface $output)
     {
         $command = sprintf(
             'ls %s',
