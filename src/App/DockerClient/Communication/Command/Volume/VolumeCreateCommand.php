@@ -1,7 +1,7 @@
 <?php
 
 
-namespace App\DockerClient\Communication\Command\Compose;
+namespace App\DockerClient\Communication\Command\Volume;
 
 
 use Symfony\Component\Console\Input\InputArgument;
@@ -9,14 +9,15 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Xervice\Console\Command\AbstractCommand;
 
-class DockerComposeUpCommand extends AbstractCommand
+class VolumeCreateCommand extends AbstractCommand
 {
     protected function configure()
     {
         $this
-            ->setName('docker:compose:up')
-            ->setDescription('Docker composer up')
-            ->addArgument('files', InputArgument::IS_ARRAY, 'Compose file', ['docker-compose.yaml']);
+            ->setName('docker:volume:create')
+            ->setDescription('Create a docker volume')
+            ->addArgument('name', InputArgument::REQUIRED, 'Volume name')
+        ;
     }
 
     /**
@@ -28,11 +29,14 @@ class DockerComposeUpCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $files = $input->getArgument('files');
-        $fileSuffix = ' -f ' . implode(' -f ', $files);
+        $name = $input->getArgument('name');
 
-        $command = sprintf('%s up -d', $fileSuffix);
-        $response = $this->getFacade()->runDockerCompose($command);
+        $command = sprintf(
+            'volume create %s',
+            $name
+        );
+
+        $response = $this->getFacade()->runDocker($command);
 
         if ($output->isVerbose()) {
             $output->writeln($response);

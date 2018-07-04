@@ -4,6 +4,7 @@
 namespace App\DockerClient;
 
 
+use App\DockerClient\Business\Docker;
 use App\DockerClient\Business\DockerCompose;
 use Xervice\Core\Factory\AbstractFactory;
 
@@ -18,6 +19,16 @@ class DockerClientFactory extends AbstractFactory
     public function createDockerCompose()
     {
         return new DockerCompose(
+            $this->getShellFacade()
+        );
+    }
+
+    /**
+     * @return \App\DockerClient\Business\Docker
+     */
+    public function createDocker()
+    {
+        return new Docker(
             $this->getShellFacade()
         );
     }

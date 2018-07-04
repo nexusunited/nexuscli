@@ -22,4 +22,14 @@ class DockerClientFacade extends AbstractFacade
     {
         return $this->getFactory()->createDockerCompose()->execute($command);
     }
+
+    /**
+     * @param string $command
+     *
+     * @return string
+     */
+    public function runDocker(string $command) : string
+    {
+        return $this->getFactory()->createDocker()->execute($command);
+    }
 }
