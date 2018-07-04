@@ -15,6 +15,11 @@ Configuration
 To use it in your docker project, you must create a "config"-directory in your root path.
 There you have to place a "config_default.php" file with that content:
 ```php
+<?php
+
+use Xervice\Core\CoreConfig;
+
+$config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
 ```
 
 
