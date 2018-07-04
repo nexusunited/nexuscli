@@ -1,0 +1,30 @@
+{
+  "name"             : "nexusnetsoftgmbh/dockercli",
+  "license"          : "MIT",
+  "authors"          : [
+    {
+      "name" : "Mike Bertram",
+      "email": "bertram@nexus-netsoft.com"
+    }
+  ],
+  "require-dev": {
+    "codeception/codeception": "*",
+    "symfony/var-dumper": "*"
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "xervice/config": "dev-master",
+    "xervice/core": "dev-master",
+    "xervice/console": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "AppTest\\": "tests/App/",
+      "DataProvider\\": "src/Generated/"
+    },
+    "psr-0": {
+      "App\\": "src/"
+    }
+  },
+  "bin": ["bin/dockercli"]
+}
