@@ -7,6 +7,7 @@ namespace Nexus\DockerClient\Communication\Command\Container;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Xervice\Console\Command\AbstractCommand;
 
 class StartContainerCommand extends AbstractCommand
 {
