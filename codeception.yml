@@ -5,4 +5,4 @@ paths:
   output: tests/_output
   envs: tests/_envs
 
-namespace: AppTest
+namespace: NexusTest

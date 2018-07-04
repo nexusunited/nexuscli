@@ -19,11 +19,11 @@
   },
   "autoload": {
     "psr-4": {
-      "AppTest\\": "tests/App/",
+      "NexusTest\\": "tests/Nexus/",
       "DataProvider\\": "src/Generated/"
     },
     "psr-0": {
-      "App\\": "src/"
+      "Nexus\\": "src/"
     }
   },
   "bin": ["bin/dockercli"]
