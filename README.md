@@ -68,3 +68,28 @@ class LsCommand extends AbstractCommand
 
 }
 ```
+
+Also you can define your own CommandProvider if you want to add a group of commands. For that your filename must have the suffix "Provider.php" and is saved in the same directory like your custom commands.
+Example:
+```php
+<?php
+
+namespace Nexus\CustomCommand\Provider;
+
+use Nexus\Console\Provider\CommandProviderInterface;
+
+class CustomProvider implements CommandProviderInterface
+{
+    /**
+     * @param array $commands
+     *
+     * @return array
+     */
+    public function provideCommands(array $commands): array
+    {
+        $commands[] = new MyCustomCommandClass();
+
+        return $commands;
+    }
+}
+```

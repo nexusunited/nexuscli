@@ -27,14 +27,47 @@ class CommandProvider extends AbstractWithLocator implements CommandProviderInte
         $commandPath = $this->getFacade()->getConfig()->get(XerviceConfig::APPLICATION_PATH) . '/commands';
 
         if (is_dir($commandPath)) {
-            foreach (glob($commandPath . '/*Command.php') as $file) {
-                require $file;
-
-                $className = 'Nexus\\CustomCommand\\Command\\' . basename($file, '.php');
-                $commands[] = new $className();
-            }
+            $commands = $this->addCustomCommands($commands, $commandPath);
+            $commands = $this->addCustomProvider($commands, $commandPath);
         }
 
         return $commands;
     }
+
+    /**
+     * @param array $commands
+     * @param $commandPath
+     *
+     * @return array
+     */
+    private function addCustomCommands(array $commands, $commandPath): array
+    {
+        foreach (glob($commandPath . '/*Command.php') as $file) {
+            require $file;
+
+            $className = 'Nexus\\CustomCommand\\Command\\' . basename($file, '.php');
+            $commands[] = new $className();
+        }
+        return $commands;
+}
+
+    /**
+     * @param array $commands
+     * @param $commandPath
+     *
+     * @return array
+     */
+    private function addCustomProvider(array $commands, $commandPath): array
+    {
+        foreach (glob($commandPath . '/*Provider.php') as $file) {
+            require $file;
+
+            $className = 'Nexus\\CustomCommand\\Provider\\' . basename($file, '.php');
+            $provider = new $className();
+            if ($provider instanceof CommandProviderInterface) {
+                $commands = $provider->provideCommands($commands);
+            }
+        }
+        return $commands;
+}
 }
