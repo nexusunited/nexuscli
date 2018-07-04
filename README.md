@@ -1,4 +1,4 @@
-NEXUS Docker Client
+NEXUS CLI
 ======================
 
 Installation
