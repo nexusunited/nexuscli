@@ -1,5 +1,5 @@
-NEXUS Docker Client
-======================
+NEXUS CLI
+================
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/nexusnetsoftgmbh/nexuscli/badges/quality-score.png)](https://scrutinizer-ci.com/g/nexusnetsoftgmbh/nexuscli)
 
@@ -28,6 +28,13 @@ $config[DumperConfig::SSH_HOST] = '5.9.82.139';
 $config[DumperConfig::SSH_USER] = 'nxsdocker';
 $config[DumperConfig::PROJECT_NAME] = 'myproject';
 $config[DumperConfig::IMAGE_NAME] = 'nxs-docker-dumper';
+```
+
+Usage
+--------
+You have to run the nxscli command in your project root directory. That's the same directory where you can have created the "config" directory.
+```
+nxscli <command>
 ```
 
 
