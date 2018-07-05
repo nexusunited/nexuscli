@@ -20,7 +20,7 @@ class NexusTester extends \Codeception\Actor
 {
     use _generated\NexusTesterActions;
 
-   /**
-    * Define custom actions here
-    */
+    /**
+     * Define custom actions here
+     */
 }

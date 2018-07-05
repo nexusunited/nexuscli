@@ -29,7 +29,7 @@ class DumperDependencyProvider extends AbstractProvider
      */
     private function addShellFacade(DependencyProviderInterface $container): void
     {
-        $container[self::SHELL_FACADE] = function (DependencyProviderInterface $container) {
+        $container[self::SHELL_FACADE] = function(DependencyProviderInterface $container) {
             return $container->getLocator()->shell()->facade();
         };
     }
@@ -39,7 +39,7 @@ class DumperDependencyProvider extends AbstractProvider
      */
     private function addDockerFacade(DependencyProviderInterface $container): void
     {
-        $container[self::DOCKER_FACADE] = function (DependencyProviderInterface $container) {
+        $container[self::DOCKER_FACADE] = function(DependencyProviderInterface $container) {
             return $container->getLocator()->dockerClient()->facade();
         };
     }

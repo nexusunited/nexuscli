@@ -27,7 +27,7 @@ class CustomCommandDependencyProvider extends AbstractProvider
      */
     private function addShellFacade(DependencyProviderInterface $container): void
     {
-        $container[self::SHELL_FACADE] = function (DependencyProviderInterface $container) {
+        $container[self::SHELL_FACADE] = function(DependencyProviderInterface $container) {
             return $container->getLocator()->shell()->facade();
         };
     }
