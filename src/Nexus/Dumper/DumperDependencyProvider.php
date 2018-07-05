@@ -21,6 +21,7 @@ class DumperDependencyProvider extends AbstractProvider
     public function handleDependencies(DependencyProviderInterface $container)
     {
         $this->addShellFacade($container);
+        $this->addDockerFacade($container);
     }
 
     /**
