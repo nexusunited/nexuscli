@@ -2,6 +2,9 @@ build:
     environment:
         php: '7.1'
 
+    filter:
+      dependency_paths: ["tests/_support/_generated/*"]
+
     tests:
         override:
             -
