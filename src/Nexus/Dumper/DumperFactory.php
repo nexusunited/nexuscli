@@ -38,6 +38,14 @@ class DumperFactory extends AbstractFactory
     }
 
     /**
+     * @return array
+     */
+    public function getCommandList()
+    {
+        return $this->getDependency(DumperDependencyProvider::COMMAND_LIST);
+    }
+
+    /**
      * @return \Nexus\Shell\ShellFacade
      */
     public function getShellFacade()

@@ -34,6 +34,14 @@ class DockerClientFactory extends AbstractFactory
     }
 
     /**
+     * @return array
+     */
+    public function getCommandList()
+    {
+        return $this->getDependency(DockerClientDependencyProvider::COMMAND_LIST);
+    }
+
+    /**
      * @return \Nexus\Shell\ShellFacade
      */
     public function getShellFacade()

@@ -5,6 +5,9 @@ use Nexus\Dumper\DumperConfig;
 use Xervice\Core\CoreConfig;
 
 $config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
+$config[CoreConfig::ADDITIONAL_LAYER_NAMESPACES] = [
+    'Project'
+];
 
 $config[DumperConfig::SSH_HOST] = '5.9.82.139';
 $config[DumperConfig::SSH_USER] = 'nxsdocker';

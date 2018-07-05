@@ -34,4 +34,17 @@ class CustomCommandFacade extends AbstractFacade
     {
         return $this->getFactory()->getShellFacade()->runCommand($command);
     }
+
+    /**
+     * @return array
+     * @throws \Xervice\Config\Exception\ConfigNotFound
+     */
+    public function getCommands()
+    {
+        return $this->hydrateCommands(
+            [],
+            $this->getConfig()->getCommandPath(),
+            true
+        );
+    }
 }

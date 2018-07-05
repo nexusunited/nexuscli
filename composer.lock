@@ -369,16 +369,16 @@
         },
         {
             "name": "xervice/core",
-            "version": "1.0.0",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/core.git",
-                "reference": "db7e6b345f6069e745c28d03ec5a553b7a48c3a6"
+                "reference": "e65987a2b85ab306352a3db67074fec3edaacbbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/core/zipball/db7e6b345f6069e745c28d03ec5a553b7a48c3a6",
-                "reference": "db7e6b345f6069e745c28d03ec5a553b7a48c3a6",
+                "url": "https://api.github.com/repos/xervice/core/zipball/e65987a2b85ab306352a3db67074fec3edaacbbc",
+                "reference": "e65987a2b85ab306352a3db67074fec3edaacbbc",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                 }
             ],
             "description": "Xervice core functionality",
-            "time": "2018-07-05T08:19:38+00:00"
+            "time": "2018-07-05T12:01:59+00:00"
         }
     ],
     "packages-dev": [

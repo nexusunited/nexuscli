@@ -14,6 +14,14 @@ use Xervice\Core\Facade\AbstractFacade;
 class DockerClientFacade extends AbstractFacade
 {
     /**
+     * @return array
+     */
+    public function getCommands()
+    {
+        return $this->getFactory()->getCommandList();
+    }
+
+    /**
      * @param string $command
      *
      * @return string

@@ -4,6 +4,13 @@
 namespace Nexus\DockerClient;
 
 
+use Nexus\DockerClient\Communication\Command\Compose\DockerComposeRmCommand;
+use Nexus\DockerClient\Communication\Command\Compose\DockerComposeUpCommand;
+use Nexus\DockerClient\Communication\Command\Container\StartContainerCommand;
+use Nexus\DockerClient\Communication\Command\Container\StopContainerCommand;
+use Nexus\DockerClient\Communication\Command\Exec\DockerExecCommand;
+use Nexus\DockerClient\Communication\Command\Volume\VolumeCreateCommand;
+use Nexus\DockerClient\Communication\Command\Volume\VolumeRemoveCommand;
 use Xervice\Core\Dependency\DependencyProviderInterface;
 use Xervice\Core\Dependency\Provider\AbstractProvider;
 
@@ -14,12 +21,34 @@ class DockerClientDependencyProvider extends AbstractProvider
 {
     const SHELL_FACADE = 'shell.facade';
 
+    const COMMAND_LIST = 'command.list';
+
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
      */
     public function handleDependencies(DependencyProviderInterface $container)
     {
         $this->addShellFacade($container);
+
+        $container[self::COMMAND_LIST] = function(DependencyProviderInterface $container) {
+            return $this->getCommandList();
+        };
+    }
+
+    /**
+     * @return array
+     */
+    protected function getCommandList()
+    {
+        return [
+            new DockerComposeUpCommand(),
+            new DockerComposeRmCommand(),
+            new VolumeCreateCommand(),
+            new VolumeRemoveCommand(),
+            new DockerExecCommand(),
+            new StartContainerCommand(),
+            new StopContainerCommand()
+        ];
     }
 
     /**

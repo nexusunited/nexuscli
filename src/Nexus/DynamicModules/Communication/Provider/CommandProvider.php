@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nexus\CustomCommand\Communication\Provider;
+namespace Nexus\DynamicModules\Communication\Provider;
 
 
 use Nexus\Console\Provider\CommandProviderInterface;
@@ -15,7 +15,7 @@ use Xervice\Core\Config\ConfigInterface;
 use Xervice\Core\Locator\AbstractWithLocator;
 
 /**
- * @method \Nexus\CustomCommand\CustomCommandFacade getFacade()
+ * @method \Nexus\DynamicModules\CustomCommandFacade getFacade()
  */
 class CommandProvider extends AbstractWithLocator implements CommandProviderInterface
 {
@@ -28,12 +28,8 @@ class CommandProvider extends AbstractWithLocator implements CommandProviderInte
      */
     public function provideCommands(array $commands): array
     {
-        $this->getFacade()->hydrateCommands(
-            $commands,
-            $this->getFacade()->getConfig()->getCommandPath(),
-            true
+        return $this->getFacade()->hydrateCommands(
+            $commands
         );
-
-        return $commands;
     }
 }
