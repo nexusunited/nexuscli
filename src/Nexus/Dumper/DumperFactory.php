@@ -32,6 +32,7 @@ class DumperFactory extends AbstractFactory
             $this->getConfig()->getProject(),
             $version,
             $this->getConfig()->getImageName(),
+            $this->getConfig()->getDumpDirectory(),
             $this->getDockerFacade()
         );
     }

@@ -16,6 +16,8 @@ class DumperConfig extends AbstractConfig
 
     const IMAGE_NAME = 'image.name';
 
+    const DUMP_DIRECTORY = 'dump.directory';
+
     /**
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
@@ -50,5 +52,14 @@ class DumperConfig extends AbstractConfig
     public function getImageName()
     {
         return $this->get(self::IMAGE_NAME);
+    }
+
+    /**
+     * @return string
+     * @throws \Xervice\Config\Exception\ConfigNotFound
+     */
+    public function getDumpDirectory()
+    {
+        return $this->get(self::DUMP_DIRECTORY);
     }
 }

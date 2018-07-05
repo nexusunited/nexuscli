@@ -19,6 +19,7 @@ There you have to place a "config_default.php" file with that content:
 ```php
 <?php
 
+use Nexus\CustomCommand\CustomCommandConfig;
 use Nexus\Dumper\DumperConfig;
 use Xervice\Core\CoreConfig;
 
@@ -28,6 +29,9 @@ $config[DumperConfig::SSH_HOST] = '5.9.82.139';
 $config[DumperConfig::SSH_USER] = 'nxsdocker';
 $config[DumperConfig::PROJECT_NAME] = 'myproject';
 $config[DumperConfig::IMAGE_NAME] = 'nxs-docker-dumper';
+$config[DumperConfig::DUMP_DIRECTORY] = dirname(__DIR__) . '/dump';
+
+$config[CustomCommandConfig::COMMAND_PATH] = dirname(__DIR__) . '/nxscli/commands';
 ```
 
 Usage
@@ -40,9 +44,9 @@ nxscli <command>
 
 Custom commands
 ----------------
-If you want to add your own commands, you can create a "commands"-directory in your root path.
-There you can place your own commands. A command filename must have the suffix "Command.php" and your command class must have the same name like your filename.
-Also you can create subdirectories for your commands to group them. The namespace always have to be the same.
+If you want to add your own commands, you can configure a directory where to search for custom commands.
+A command filename must have the suffix "Command.php" and your command class must have the same name like your filename.
+Also you can create subdirectories for your commands to group them. The namespace always have to be "Nexus\CustomCommand\Command".
 
 Example custom command 'LsCommand.php':
 ```php

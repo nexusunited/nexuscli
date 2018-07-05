@@ -38,8 +38,8 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
     {
         return [
             new DockerCommandProvider(),
-            new CustomCommandCommandProvider(),
-            new DumperCommandProvider()
+            new DumperCommandProvider(),
+            new CustomCommandCommandProvider()
         ];
     }
 }

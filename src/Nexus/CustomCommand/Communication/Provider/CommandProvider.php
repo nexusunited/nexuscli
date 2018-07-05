@@ -29,7 +29,7 @@ class CommandProvider extends AbstractWithLocator implements CommandProviderInte
     public function provideCommands(array $commands): array
     {
         $this->getFacade()->hydrateCommands(
-            commands,
+            $commands,
             $this->getFacade()->getConfig()->getCommandPath(),
             true
         );

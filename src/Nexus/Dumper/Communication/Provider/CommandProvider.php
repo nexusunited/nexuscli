@@ -5,6 +5,7 @@ namespace Nexus\Dumper\Communication\Provider;
 
 
 use Nexus\Console\Provider\CommandProviderInterface;
+use Nexus\Dumper\Communication\Command\DumpLocalCommand;
 
 class CommandProvider implements CommandProviderInterface
 {
@@ -16,8 +17,9 @@ class CommandProvider implements CommandProviderInterface
      */
     public function provideCommands(array $commands): array
     {
-        $commands += [
-        ];
+        $commands = array_merge($commands, [
+            new DumpLocalCommand()
+        ]);
 
         return $commands;
     }

@@ -23,7 +23,7 @@ class CommandProvider implements CommandProviderInterface
      */
     public function provideCommands(array $commands): array
     {
-        $commands += [
+        $commands = array_merge($commands, [
             new DockerComposeUpCommand(),
             new DockerComposeRmCommand(),
             new VolumeCreateCommand(),
@@ -31,7 +31,7 @@ class CommandProvider implements CommandProviderInterface
             new DockerExecCommand(),
             new StartContainerCommand(),
             new StopContainerCommand()
-        ];
+        ]);
 
         return $commands;
     }

@@ -49,6 +49,11 @@ class Dumper
     private $imageName;
 
     /**
+     * @var string
+     */
+    private $dumpDirectory;
+
+    /**
      * @var DockerClientFacade
      */
     private $dockerFacade;
@@ -75,6 +80,7 @@ class Dumper
         string $project,
         string $version,
         string $imageName,
+        string $dumpDirectory,
         DockerClientFacade $dockerFacade
     ) {
         $this->volume = $volume;
@@ -85,6 +91,7 @@ class Dumper
         $this->project = $project;
         $this->version = $version;
         $this->imageName = $imageName;
+        $this->dumpDirectory = $dumpDirectory;
         $this->dockerFacade = $dockerFacade;
     }
 
@@ -94,9 +101,10 @@ class Dumper
     public function dump()
     {
         $command = sprintf(
-            'run --rm -v %s:%s -e SSHHOST=%s -e SSHUSER=%s -e ENGINE=%s -e PROJECT=%s -e VERSION=%s %s dump',
+            'run --rm -v %s:%s -v %s:/dump -e SSHHOST=%s -e SSHUSER=%s -e ENGINE=%s -e PROJECT=%s -e VERSION=%s %s dump',
             $this->volume,
             $this->path,
+            $this->dumpDirectory,
             $this->sshHost,
             $this->sshUser,
             $this->engine,
