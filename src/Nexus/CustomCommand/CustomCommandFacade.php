@@ -14,6 +14,18 @@ use Xervice\Core\Facade\AbstractFacade;
 class CustomCommandFacade extends AbstractFacade
 {
     /**
+     * @param array $commands
+     * @param string $directory
+     * @param bool $recursive
+     *
+     * @return array
+     */
+    public function hydrateCommands(array $commands, string $directory, bool $recursive)
+    {
+        return $this->getFactory()->createCommandHydrator($directory, $recursive)->hydrateCommands($commands);
+    }
+
+    /**
      * @param string $command
      *
      * @return string

@@ -42,6 +42,8 @@ Custom commands
 ----------------
 If you want to add your own commands, you can create a "commands"-directory in your root path.
 There you can place your own commands. A command filename must have the suffix "Command.php" and your command class must have the same name like your filename.
+Also you can create subdirectories for your commands to group them. The namespace always have to be the same.
+
 Example custom command 'LsCommand.php':
 ```php
 <?php
@@ -81,30 +83,5 @@ class LsCommand extends AbstractCommand
         );
     }
 
-}
-```
-
-Also you can define your own CommandProvider if you want to add a group of commands. For that your filename must have the suffix "Provider.php" and is saved in the same directory like your custom commands.
-Example:
-```php
-<?php
-
-namespace Nexus\CustomCommand\Provider;
-
-use Nexus\Console\Provider\CommandProviderInterface;
-
-class CustomProvider implements CommandProviderInterface
-{
-    /**
-     * @param array $commands
-     *
-     * @return array
-     */
-    public function provideCommands(array $commands): array
-    {
-        $commands[] = new MyCustomCommandClass();
-
-        return $commands;
-    }
 }
 ```
