@@ -3,7 +3,7 @@ build:
         php: '7.1'
 
     filter:
-      dependency_paths: ["tests/_support/_generated/*"]
+        dependency_paths: ["tests/_support/_generated/*"]
 
     tests:
         override:
