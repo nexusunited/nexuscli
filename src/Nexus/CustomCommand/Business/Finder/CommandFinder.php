@@ -48,6 +48,6 @@ class CommandFinder extends Finder implements CommandFinderInterface
         if (!$this->recursive) {
             $this->depth('== 0');
         }
-        return $this->files()->name('*Command.php')->in($this->directory);
+        return $this->files()->sortByName()->name('*Command.php')->in($this->directory);
     }
 }

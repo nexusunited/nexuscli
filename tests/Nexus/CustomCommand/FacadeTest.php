@@ -30,11 +30,11 @@ class FacadeTest extends \Codeception\Test\Unit
         $this->assertCount(2, $commands);
 
         $this->assertInstanceOf(
-            'Nexus\\CustomCommand\\Command\\TestRecursiveCommand',
+            'Nexus\\CustomCommand\\Command\\TestCommand',
             $commands[0]
         );
         $this->assertInstanceOf(
-            'Nexus\\CustomCommand\\Command\\TestCommand',
+            'Nexus\\CustomCommand\\Command\\TestRecursiveCommand',
             $commands[1]
         );
     }
