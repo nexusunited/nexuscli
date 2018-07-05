@@ -15,7 +15,7 @@ use Xervice\Core\Config\ConfigInterface;
 use Xervice\Core\Locator\AbstractWithLocator;
 
 /**
- * @method \Nexus\DynamicModules\CustomCommandFacade getFacade()
+ * @method \Nexus\DynamicModules\DynamicModulesFacade getFacade()
  */
 class CommandProvider extends AbstractWithLocator implements CommandProviderInterface
 {

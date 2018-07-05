@@ -59,9 +59,16 @@ class ModuleFinder implements ModuleFinderInterface
     {
         $directories = [];
 
+        $clipath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+
         foreach ($this->namespaces as $namespace) {
             $directories[] = $this->applicationPath . '/src/' . $namespace;
             $directories[] = $this->applicationPath . '/vendor/*/*/src/' . $namespace;
+
+            if ($this->applicationPath !== $clipath) {
+                $directories[] = $clipath . '/src/' . $namespace;
+                $directories[] = $clipath . '/vendor/*/*/src/' . $namespace;
+            }
         }
 
         return $directories;
