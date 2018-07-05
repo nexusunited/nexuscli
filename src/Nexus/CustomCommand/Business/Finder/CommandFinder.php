@@ -33,6 +33,14 @@ class CommandFinder extends Finder implements CommandFinderInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isDir() : bool
+    {
+        return is_dir($this->directory);
+    }
+
+    /**
      * @return Finder
      */
     public function getCommandClasses()

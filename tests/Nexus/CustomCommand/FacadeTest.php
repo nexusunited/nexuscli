@@ -56,4 +56,17 @@ class FacadeTest extends \Codeception\Test\Unit
             $commands[0]
         );
     }
+
+    /**
+     * @group Nexus
+     * @group CustomCommand
+     * @group Facade
+     * @group Integration
+     */
+    public function testHydrateCommandsWithNonExistingDirectory()
+    {
+        $commands = $this->facade->hydrateCommands([], __DIR__ . '/notExisting', false);
+
+        $this->assertCount(0, $commands);
+    }
 }

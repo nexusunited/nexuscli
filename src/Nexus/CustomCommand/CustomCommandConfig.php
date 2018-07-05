@@ -10,12 +10,17 @@ use Xervice\Core\CoreConfig;
 
 class CustomCommandConfig extends AbstractConfig
 {
+    const COMMAND_PATH = 'command.path';
+
     /**
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function getApplicationPath()
+    public function getCommandPath()
     {
-        return $this->get(XerviceConfig::APPLICATION_PATH);
+        return $this->get(
+            self::COMMAND_PATH,
+            $this->get(XerviceConfig::APPLICATION_PATH) . '/commands'
+        );
     }
 }

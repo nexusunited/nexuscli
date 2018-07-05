@@ -4,6 +4,8 @@
 namespace Nexus\CustomCommand\Business\Hydrator;
 
 
+use Nexus\CustomCommand\Business\Finder\CommandFinderInterface;
+
 class CommandHydrator implements CommandHydratorInterface
 {
     /**
@@ -16,7 +18,7 @@ class CommandHydrator implements CommandHydratorInterface
      *
      * @param \Nexus\CustomCommand\Business\Finder\CommandFinderInterface $commandFinder
      */
-    public function __construct(\Nexus\CustomCommand\Business\Finder\CommandFinderInterface $commandFinder)
+    public function __construct(CommandFinderInterface $commandFinder)
     {
         $this->commandFinder = $commandFinder;
     }
@@ -28,6 +30,21 @@ class CommandHydrator implements CommandHydratorInterface
      */
     public function hydrateCommands(array $commands)
     {
+        if ($this->commandFinder->isDir()) {
+            $commands += $this->getCommandsFromFinder();
+        }
+
+        return $commands;
+    }
+
+    /**
+     * @param array $commands
+     *
+     * @return array
+     */
+    private function getCommandsFromFinder(): array
+    {
+        $commands = [];
         foreach ($this->commandFinder->getCommandClasses() as $file) {
             require_once $file->getRealPath();
 
@@ -37,7 +54,6 @@ class CommandHydrator implements CommandHydratorInterface
             );
             $commands[] = new $className();
         }
-
         return $commands;
     }
 
