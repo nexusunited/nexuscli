@@ -16,7 +16,7 @@ class CustomCommandFacade extends AbstractFacade
     /**
      * @param string $command
      *
-     * @return \Nexus\CustomCommand\stirng
+     * @return string
      */
     public function runShell(string $command) : string
     {

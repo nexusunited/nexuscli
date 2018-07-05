@@ -9,6 +9,9 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Xervice\Console\Command\AbstractCommand;
 
+/**
+ * @method \Nexus\DockerClient\DockerClientFacade getFacade()
+ */
 class DockerComposeUpCommand extends AbstractCommand
 {
     protected function configure()
