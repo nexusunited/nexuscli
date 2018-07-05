@@ -32,7 +32,7 @@ $config[DumperConfig::IMAGE_NAME] = 'nxs-docker-dumper';
 
 Usage
 --------
-You have to run the nxscli command in your project root directory. That's the same directory where you can have created the "config" directory.
+You have to run the nxscli command in your project root directory. That's the same directory where you have created the "config" directory.
 ```
 nxscli <command>
 ```
