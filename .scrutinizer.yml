@@ -1,14 +1,17 @@
 filter:
-    dependency_paths: ["tests/_support/_generated/*"]
+  dependency_paths:
+    - "tests/_support/_generated/*"
 
 build:
-    environment:
-        php: '7.1'
+  environment:
+    php: '7.1'
 
-    tests:
+  nodes:
+    analysis:
+      tests:
         override:
-            -
-              command: 'vendor/bin/codecept run --coverage --coverage-xml'
-              coverage:
-                file: 'tests/_output/coverage.xml'
-                format: 'clover'
+          -
+            command: 'vendor/bin/codecept run --coverage --coverage-xml'
+            coverage:
+              file: 'tests/_output/coverage.xml'
+              format: 'clover'
