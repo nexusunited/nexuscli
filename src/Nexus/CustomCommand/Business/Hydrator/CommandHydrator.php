@@ -38,8 +38,6 @@ class CommandHydrator implements CommandHydratorInterface
     }
 
     /**
-     * @param array $commands
-     *
      * @return array
      */
     private function getCommandsFromFinder(): array
