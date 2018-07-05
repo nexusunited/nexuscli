@@ -6,3 +6,8 @@ paths:
   envs: tests/_envs
 
 namespace: NexusTest
+
+coverage:
+    enabled: true
+    include:
+      - src/*
