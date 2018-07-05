@@ -5,6 +5,9 @@ namespace Nexus\Dumper;
 
 
 use Nexus\Dumper\Communication\Command\DumpLocalCommand;
+use Nexus\Dumper\Communication\Command\DumpSshCommand;
+use Nexus\Dumper\Communication\Command\RestoreLocalCommand;
+use Nexus\Dumper\Communication\Command\RestoreSshCommand;
 use Xervice\Core\Dependency\DependencyProviderInterface;
 use Xervice\Core\Dependency\Provider\AbstractProvider;
 
@@ -36,7 +39,10 @@ class DumperDependencyProvider extends AbstractProvider
     protected function getCommandList()
     {
         return [
-            new DumpLocalCommand()
+            new DumpLocalCommand(),
+            new DumpSshCommand(),
+            new RestoreLocalCommand(),
+            new RestoreSshCommand()
         ];
     }
 

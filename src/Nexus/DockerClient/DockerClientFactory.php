@@ -15,21 +15,25 @@ class DockerClientFactory extends AbstractFactory
 {
     /**
      * @return \Nexus\DockerClient\Business\DockerCompose
+     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createDockerCompose()
     {
         return new DockerCompose(
-            $this->getShellFacade()
+            $this->getShellFacade(),
+            $this->getConfig()->getDockerComposeCommand()
         );
     }
 
     /**
      * @return \Nexus\DockerClient\Business\Docker
+     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createDocker()
     {
         return new Docker(
-            $this->getShellFacade()
+            $this->getShellFacade(),
+            $this->getConfig()->getDockerCommand()
         );
     }
 

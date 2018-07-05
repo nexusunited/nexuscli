@@ -9,24 +9,27 @@ use Nexus\Shell\ShellFacade;
 class Docker
 {
     /**
-     * @var \Nexus\Shell\ShellFacade
+     * @var ShellFacade
      */
     private $shellFacade;
 
     /**
      * @var string
      */
-    private $command = 'docker';
+    private $command;
 
     /**
-     * DockerCompose constructor.
+     * Docker constructor.
      *
-     * @param \Nexus\Shell\ShellFacade $shellFacade
+     * @param ShellFacade $shellFacade
+     * @param string $command
      */
-    public function __construct(ShellFacade $shellFacade)
+    public function __construct(ShellFacade $shellFacade, string $command)
     {
         $this->shellFacade = $shellFacade;
+        $this->command = $command;
     }
+
 
     /**
      * @param string $command

@@ -12,17 +12,17 @@ use Xervice\Console\Command\AbstractCommand;
 /**
  * @method \Nexus\Dumper\DumperFacade getFacade()
  */
-class DumpLocalCommand extends AbstractCommand
+class RestoreSshCommand extends AbstractCommand
 {
     protected function configure()
     {
         $this
-            ->setName('dumper:dump:local')
-            ->setDescription('Dump one volume')
-            ->addArgument('volume', InputArgument::REQUIRED, 'The volume to dump')
-            ->addArgument('path', InputArgument::REQUIRED, 'The path inside the volume to dump')
-            ->addArgument('version', InputArgument::REQUIRED, 'The version for naming of your dump')
-            ->addArgument('datapath', InputArgument::OPTIONAL, 'The Datapath for naming of your dump', '/data');
+            ->setName('dumper:restore:ssh')
+            ->setDescription('Restore one volume to ssh')
+            ->addArgument('volume', InputArgument::REQUIRED, 'The volume to restore')
+            ->addArgument('path', InputArgument::REQUIRED, 'The path inside the volume to restore')
+            ->addArgument('version', InputArgument::REQUIRED, 'The version for naming of your restore')
+            ->addArgument('datapath', InputArgument::OPTIONAL, 'The Datapath for naming of your restore', '/data');
     }
 
     /**
@@ -35,7 +35,7 @@ class DumpLocalCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->getFacade()->dumpToLocal(
+        $this->getFacade()->restoreToSsh(
             $input->getArgument('volume'),
             $input->getArgument('path'),
             $input->getArgument('version'),

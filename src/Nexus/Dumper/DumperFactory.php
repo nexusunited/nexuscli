@@ -21,7 +21,7 @@ class DumperFactory extends AbstractFactory
      * @return \Nexus\Dumper\Business\Dumper
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function createDumper(string $volume, string $path, string $engine, string $version)
+    public function createDumper(string $volume, string $path, string $engine, string $version, string $datapath)
     {
         return new Dumper(
             $volume,
@@ -31,6 +31,7 @@ class DumperFactory extends AbstractFactory
             $engine,
             $this->getConfig()->getProject(),
             $version,
+            $datapath,
             $this->getConfig()->getImageName(),
             $this->getConfig()->getDumpDirectory(),
             $this->getDockerFacade()
