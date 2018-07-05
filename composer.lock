@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "347f47e5ee4f1a5913d27a7e349b5f3d",
+    "content-hash": "9c236264c35e2226cbe187b719ab41b8",
     "packages": [
         {
             "name": "pimple/pimple",
@@ -234,16 +234,16 @@
         },
         {
             "name": "xervice/config",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/config.git",
-                "reference": "a133cbc1e678025f137bf2800aa15415a6b6c967"
+                "reference": "8af94c5b1918a31403d49e23aa1849d465af9a78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/config/zipball/a133cbc1e678025f137bf2800aa15415a6b6c967",
-                "reference": "a133cbc1e678025f137bf2800aa15415a6b6c967",
+                "url": "https://api.github.com/repos/xervice/config/zipball/8af94c5b1918a31403d49e23aa1849d465af9a78",
+                "reference": "8af94c5b1918a31403d49e23aa1849d465af9a78",
                 "shasum": ""
             },
             "require-dev": {
@@ -270,26 +270,25 @@
                 }
             ],
             "description": "Config environment to xervice components",
-            "time": "2018-04-18T19:09:56+00:00"
+            "time": "2018-07-05T08:14:26+00:00"
         },
         {
             "name": "xervice/console",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/console.git",
-                "reference": "6fcf498a602c6b4ff2f093e1ec95fd81af75ad05"
+                "reference": "99339267476718d75e59ae8f0b04347d8d09ddbc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/console/zipball/6fcf498a602c6b4ff2f093e1ec95fd81af75ad05",
-                "reference": "6fcf498a602c6b4ff2f093e1ec95fd81af75ad05",
+                "url": "https://api.github.com/repos/xervice/console/zipball/99339267476718d75e59ae8f0b04347d8d09ddbc",
+                "reference": "99339267476718d75e59ae8f0b04347d8d09ddbc",
                 "shasum": ""
             },
             "require": {
                 "symfony/console": "4.0.*",
-                "xervice/config": "dev-master",
-                "xervice/core": "dev-master"
+                "xervice/core": "^1.0.0"
             },
             "require-dev": {
                 "codeception/codeception": "*",
@@ -317,26 +316,26 @@
                     "email": "contact@mibexx.de"
                 }
             ],
-            "time": "2018-04-04T18:23:24+00:00"
+            "time": "2018-07-05T08:21:43+00:00"
         },
         {
             "name": "xervice/core",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/core.git",
-                "reference": "b6bc0845d1ec91b1d219b95b8a3d1fa4c64f5132"
+                "reference": "db7e6b345f6069e745c28d03ec5a553b7a48c3a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/core/zipball/b6bc0845d1ec91b1d219b95b8a3d1fa4c64f5132",
-                "reference": "b6bc0845d1ec91b1d219b95b8a3d1fa4c64f5132",
+                "url": "https://api.github.com/repos/xervice/core/zipball/db7e6b345f6069e745c28d03ec5a553b7a48c3a6",
+                "reference": "db7e6b345f6069e745c28d03ec5a553b7a48c3a6",
                 "shasum": ""
             },
             "require": {
                 "php": ">=7.1.0",
                 "pimple/pimple": "3.2.*",
-                "xervice/config": "dev-master"
+                "xervice/config": "^1.0.0"
             },
             "require-dev": {
                 "codeception/codeception": "*",
@@ -363,7 +362,7 @@
                 }
             ],
             "description": "Xervice core functionality",
-            "time": "2018-04-19T17:56:42+00:00"
+            "time": "2018-07-05T08:19:38+00:00"
         }
     ],
     "packages-dev": [
@@ -2916,11 +2915,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "xervice/config": 20,
-        "xervice/core": 20,
-        "xervice/console": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
