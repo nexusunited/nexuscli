@@ -41,6 +41,35 @@ You have to run the nxscli command in your project root directory. That's the sa
 nxscli <command>
 ```
 
+Extending
+----------------
+You can create your own nxscli. For that you have to create an "composer.json" file in your project root.
+```json
+{
+  "require-dev": {
+    "codeception/codeception": "*",
+    "symfony/var-dumper": "*"
+  },
+  "require": {
+    "php": ">=7.1.0",
+    "nexusnetsoftgmbh/nexuscli": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "NexusTest\\": "tests/Nexus/",
+      "DataProvider\\": "src/Generated/"
+    },
+    "psr-0": {
+      "Nexus\\": "src/"
+    }
+  }
+}
+```
+
+After that you can create an src directory and develop own Nexus-Modules in there.
+
+
+
 
 Custom commands
 ----------------
