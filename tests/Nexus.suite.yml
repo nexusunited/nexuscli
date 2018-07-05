@@ -1,0 +1,4 @@
+actor: NexusTester
+modules:
+    enabled:
+        - \NexusTest\Helper\Nexus
