@@ -31,7 +31,7 @@ class DumperFacade extends AbstractFacade
      */
     public function dumpToLocal(string $volume, string $path, string $version, string $datapath)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'local', $version, $datapath)->dump();
+        return $this->getFactory()->createDumper($volume, $path, 'default', $version, $datapath)->dump();
     }
 
     /**
@@ -44,7 +44,7 @@ class DumperFacade extends AbstractFacade
      */
     public function restoreToLocal(string $volume, string $path, string $version, string $datapath)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'local', $version, $datapath)->restore();
+        return $this->getFactory()->createDumper($volume, $path, 'default', $version, $datapath)->restore();
     }
 
     /**
