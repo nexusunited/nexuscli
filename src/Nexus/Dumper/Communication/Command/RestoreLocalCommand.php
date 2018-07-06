@@ -21,7 +21,7 @@ class RestoreLocalCommand extends AbstractCommand
             ->setDescription('Restore one volume')
             ->addArgument('volume', InputArgument::REQUIRED, 'The volume to restore')
             ->addArgument('path', InputArgument::REQUIRED, 'The path inside the volume to restore')
-            ->addArgument('version', InputArgument::REQUIRED, 'The version for naming of your restore', 'master')
+            ->addArgument('version', InputArgument::OPTIONAL, 'The version for naming of your restore', 'master')
             ->addArgument('datapath', InputArgument::OPTIONAL, 'The Datapath for naming of your restore', '/data');
     }
 
