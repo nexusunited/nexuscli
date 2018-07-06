@@ -20,9 +20,8 @@ class DumpSshCommand extends AbstractCommand
             ->setName('dumper:dump:ssh')
             ->setDescription('Dump one volume to ssh')
             ->addArgument('volume', InputArgument::REQUIRED, 'The volume to dump')
-            ->addArgument('path', InputArgument::REQUIRED, 'The path inside the volume to dump')
-            ->addArgument('version', InputArgument::REQUIRED, 'The version for naming of your dump')
-            ->addArgument('datapath', InputArgument::OPTIONAL, 'The Datapath for naming of your dump', '/data');
+            ->addArgument('path', InputArgument::OPTIONAL, 'The path inside the volume to dump', '/data')
+            ->addArgument('version', InputArgument::OPTIONAL, 'The version for naming of your restore', 'master');
     }
 
     /**
@@ -37,8 +36,7 @@ class DumpSshCommand extends AbstractCommand
         $this->getFacade()->dumpToSsh(
             $input->getArgument('volume'),
             $input->getArgument('path'),
-            $input->getArgument('version'),
-            $input->getArgument('datapath')
+            $input->getArgument('version')
         );
     }
 

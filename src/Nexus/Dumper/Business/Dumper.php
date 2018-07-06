@@ -46,11 +46,6 @@ class Dumper
     /**
      * @var string
      */
-    private $datapath;
-
-    /**
-     * @var string
-     */
     private $imageName;
 
     /**
@@ -73,7 +68,6 @@ class Dumper
      * @param string $engine
      * @param string $project
      * @param string $version
-     * @param string $datapath
      * @param string $imageName
      * @param string $dumpDirectory
      * @param \Nexus\DockerClient\DockerClientFacade $dockerFacade
@@ -86,7 +80,6 @@ class Dumper
         string $engine,
         string $project,
         string $version,
-        string $datapath,
         string $imageName,
         string $dumpDirectory,
         DockerClientFacade $dockerFacade
@@ -98,10 +91,19 @@ class Dumper
         $this->engine = $engine;
         $this->project = $project;
         $this->version = $version;
-        $this->datapath = $datapath;
         $this->imageName = $imageName;
         $this->dumpDirectory = $dumpDirectory;
         $this->dockerFacade = $dockerFacade;
+    }
+
+    /**
+     * @return string
+     */
+    public function clear()
+    {
+        $command = $this->getCommand('clear');
+
+        return $this->dockerFacade->runDocker($command);
     }
 
     /**
@@ -139,7 +141,7 @@ class Dumper
             $this->engine,
             $this->project,
             $this->version,
-            $this->datapath,
+            $this->path,
             $this->imageName,
             $type
         );

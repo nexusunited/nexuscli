@@ -29,9 +29,9 @@ class DumperFacade extends AbstractFacade
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function dumpToLocal(string $volume, string $path, string $version, string $datapath)
+    public function dumpToLocal(string $volume, string $path, string $version)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'default', $version, $datapath)->dump();
+        return $this->getFactory()->createDumper($volume, $path, 'default', $version)->dump();
     }
 
     /**

@@ -12,13 +12,13 @@ use Xervice\Console\Command\AbstractCommand;
 /**
  * @method \Nexus\Dumper\DumperFacade getFacade()
  */
-class DumpLocalCommand extends AbstractCommand
+class ClearCommand extends AbstractCommand
 {
     protected function configure()
     {
         $this
-            ->setName('dumper:dump:local')
-            ->setDescription('Dump one volume')
+            ->setName('dumper:clear')
+            ->setDescription('Clear one volume')
             ->addArgument('volume', InputArgument::REQUIRED, 'The volume to dump')
             ->addArgument('path', InputArgument::OPTIONAL, 'The path inside the volume to dump', '/data')
             ->addArgument('version', InputArgument::OPTIONAL, 'The version for naming of your restore', 'master');

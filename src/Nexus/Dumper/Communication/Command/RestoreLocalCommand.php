@@ -20,9 +20,8 @@ class RestoreLocalCommand extends AbstractCommand
             ->setName('dumper:restore:local')
             ->setDescription('Restore one volume')
             ->addArgument('volume', InputArgument::REQUIRED, 'The volume to restore')
-            ->addArgument('path', InputArgument::REQUIRED, 'The path inside the volume to restore')
-            ->addArgument('version', InputArgument::OPTIONAL, 'The version for naming of your restore', 'master')
-            ->addArgument('datapath', InputArgument::OPTIONAL, 'The Datapath for naming of your restore', '/data');
+            ->addArgument('path', InputArgument::OPTIONAL, 'The path inside the volume to dump', '/data')
+            ->addArgument('version', InputArgument::OPTIONAL, 'The version for naming of your restore', 'master');
     }
 
     /**
@@ -38,8 +37,7 @@ class RestoreLocalCommand extends AbstractCommand
         $this->getFacade()->restoreToLocal(
             $input->getArgument('volume'),
             $input->getArgument('path'),
-            $input->getArgument('version'),
-            $input->getArgument('datapath')
+            $input->getArgument('version')
         );
     }
 
