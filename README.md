@@ -7,7 +7,7 @@ Installation
 ------------
 
 ```
-composer global require nexusnetsoftgmbh/nexuscli:dev-master
+composer global require nexusnetsoftgmbh/nexuscli
 ```
 
 
@@ -67,6 +67,7 @@ You can create your own nxscli. For that you have to create an "composer.json" f
 ```
 
 After that you can create an src directory and develop own Nexus-Modules in there.
+Also you can extend you command from composer. For that you can require additional command-sets for nexuscli.
 
 
 
