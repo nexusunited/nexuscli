@@ -1,4 +1,6 @@
 /.idea
 /vendor
 /_Generated/*
+!/_Generated/Ide
+/_Generated/Ide/*
 !.gitkeep
