@@ -8,15 +8,15 @@ use Xervice\Core\Config\AbstractConfig;
 
 class DumperConfig extends AbstractConfig
 {
-    const SSH_HOST = 'ssh.host';
+    public const SSH_HOST = 'ssh.host';
 
-    const SSH_USER = 'ssh.user';
+    public const SSH_USER = 'ssh.user';
 
-    const PROJECT_NAME = 'project.name';
+    public const PROJECT_NAME = 'project.name';
 
-    const IMAGE_NAME = 'image.name';
+    public const IMAGE_NAME = 'image.name';
 
-    const DUMP_DIRECTORY = 'dump.directory';
+    public const DUMP_DIRECTORY = 'dump.directory';
 
     /**
      * @return string

@@ -10,7 +10,7 @@ use Xervice\Core\CoreConfig;
 
 class DynamicModulesConfig extends AbstractConfig
 {
-    const COMMAND_PROVIDER_FILTER = 'command.provider.filter';
+    public const COMMAND_PROVIDER_FILTER = 'command.provider.filter';
 
     /**
      * @return string

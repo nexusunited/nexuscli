@@ -14,10 +14,7 @@ use Xervice\Core\Factory\AbstractFactory;
 class DumperFactory extends AbstractFactory
 {
     /**
-     * @param string $volume
-     * @param string $path
-     * @param string $engine
-     * @param string $version
+     * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return \Nexus\Dumper\Business\Dumper
      * @throws \Xervice\Config\Exception\ConfigNotFound

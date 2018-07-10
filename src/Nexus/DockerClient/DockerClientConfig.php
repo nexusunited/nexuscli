@@ -8,9 +8,9 @@ use Xervice\Core\Config\AbstractConfig;
 
 class DockerClientConfig extends AbstractConfig
 {
-    const DOCKER_COMMAND = 'docker.command';
+    public const DOCKER_COMMAND = 'docker.command';
 
-    const DOCKER_COMPOSE_COMMAND = 'docker.compose.command';
+    public const DOCKER_COMPOSE_COMMAND = 'docker.compose.command';
 
     /**
      * @return string

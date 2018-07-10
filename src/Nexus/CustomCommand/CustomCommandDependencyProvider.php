@@ -12,7 +12,7 @@ use Xervice\Core\Dependency\Provider\AbstractProvider;
  */
 class CustomCommandDependencyProvider extends AbstractProvider
 {
-    const SHELL_FACADE = 'shell.facade';
+    public const SHELL_FACADE = 'shell.facade';
 
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $container

@@ -16,9 +16,9 @@ use Xervice\Core\Dependency\Provider\AbstractProvider;
  */
 class DumperDependencyProvider extends AbstractProvider
 {
-    const DOCKER_FACADE = 'docker.facade';
-    const SHELL_FACADE = 'shell.facade';
-    const COMMAND_LIST = 'command.list';
+    public const DOCKER_FACADE = 'docker.facade';
+    public const SHELL_FACADE = 'shell.facade';
+    public const COMMAND_LIST = 'command.list';
 
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $container

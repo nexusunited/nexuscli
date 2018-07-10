@@ -15,6 +15,11 @@ use Xervice\Console\Command\AbstractCommand;
  */
 class ClearCommand extends AbstractCommand
 {
+
+    /**
+     *
+     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
+     */
     protected function configure()
     {
         $this
@@ -30,6 +35,7 @@ class ClearCommand extends AbstractCommand
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return int|null|void
+     * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      * @throws \Core\Locator\Dynamic\ServiceNotParseable
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */

@@ -10,7 +10,7 @@ use Xervice\Core\CoreConfig;
 
 class CustomCommandConfig extends AbstractConfig
 {
-    const COMMAND_PATH = 'command.path';
+    public const COMMAND_PATH = 'command.path';
 
     /**
      * @return string

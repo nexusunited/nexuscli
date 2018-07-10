@@ -19,9 +19,9 @@ use Xervice\Core\Dependency\Provider\AbstractProvider;
  */
 class DockerClientDependencyProvider extends AbstractProvider
 {
-    const SHELL_FACADE = 'shell.facade';
+    public const SHELL_FACADE = 'shell.facade';
 
-    const COMMAND_LIST = 'command.list';
+    public const COMMAND_LIST = 'command.list';
 
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $container

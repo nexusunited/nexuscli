@@ -25,6 +25,7 @@ class DockerClientFacade extends AbstractFacade
      * @param string $command
      *
      * @return string
+     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function runDockerCompose(string $command) : string
     {
@@ -35,6 +36,7 @@ class DockerClientFacade extends AbstractFacade
      * @param string $command
      *
      * @return string
+     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function runDocker(string $command) : string
     {
