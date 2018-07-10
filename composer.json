@@ -8,6 +8,7 @@
     }
   ],
   "require-dev": {
+    "xervice/development": "^0.1.0",
     "codeception/codeception": "*",
     "symfony/var-dumper": "*"
   },

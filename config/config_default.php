@@ -4,6 +4,7 @@ use Nexus\CustomCommand\CustomCommandConfig;
 use Nexus\Dumper\DumperConfig;
 use Xervice\Core\CoreConfig;
 use Xervice\DataProvider\DataProviderConfig;
+use Xervice\Development\DevelopmentConfig;
 
 $config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
 $config[CoreConfig::ADDITIONAL_LAYER_NAMESPACES] = [
@@ -15,6 +16,8 @@ $config[DataProviderConfig::DATA_PROVIDER_PATHS] = [
     dirname(__DIR__) . '/src/Nexus/*/Schema/',
     dirname(__DIR__) . '/vendor/xervice/*/src/Xervice/*/Schema/'
 ];
+
+$config[DevelopmentConfig::GENERATED_PATH] = dirname(__DIR__) . '/_Generated/Ide';
 
 $config[DumperConfig::SSH_HOST] = '5.9.82.139';
 $config[DumperConfig::SSH_USER] = 'nxsdocker';

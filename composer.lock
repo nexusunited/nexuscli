@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6a1479999de7a2e213d4da5936fc5a68",
+    "content-hash": "b7b7be112d078df9ca3683e82163ccb8",
     "packages": [
         {
             "name": "nette/php-generator",
@@ -3101,6 +3101,52 @@
                 "validate"
             ],
             "time": "2018-01-29T19:49:41+00:00"
+        },
+        {
+            "name": "xervice/development",
+            "version": "0.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xervice/development.git",
+                "reference": "b12e6982ef2f823aeab7ab80e91dd0662d42cd3e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xervice/development/zipball/b12e6982ef2f823aeab7ab80e91dd0662d42cd3e",
+                "reference": "b12e6982ef2f823aeab7ab80e91dd0662d42cd3e",
+                "shasum": ""
+            },
+            "require": {
+                "nette/php-generator": "3.1.*",
+                "php": ">=7.1.0",
+                "xervice/console": "^1.0.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*",
+                "symfony/var-dumper": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XerviceTest\\": "tests/Xervice/",
+                    "DataProvider\\": "src/Generated/"
+                },
+                "psr-0": {
+                    "Xervice\\": "src/",
+                    "Generated\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bertram",
+                    "email": "contact@mibexx.de"
+                }
+            ],
+            "time": "2018-07-09T08:32:13+00:00"
         }
     ],
     "aliases": [],
