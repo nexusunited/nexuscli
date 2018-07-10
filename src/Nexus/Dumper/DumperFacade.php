@@ -4,6 +4,7 @@
 namespace Nexus\Dumper;
 
 
+use DataProvider\DumperConfigDataProvider;
 use Xervice\Core\Facade\AbstractFacade;
 
 /**
@@ -22,54 +23,35 @@ class DumperFacade extends AbstractFacade
     }
 
     /**
-     * @param string $volume
-     * @param string $path
-     * @param string $version
+     * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function dumpToLocal(string $volume, string $path, string $version)
+    public function dump(DumperConfigDataProvider $configDataProvider)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'default', $version)->dump();
+        return $this->getFactory()->createDumper($configDataProvider)->dump();
     }
 
     /**
-     * @param string $volume
-     * @param string $path
-     * @param string $version
+     * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function restoreToLocal(string $volume, string $path, string $version, string $datapath)
+    public function restore(DumperConfigDataProvider $configDataProvider)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'default', $version, $datapath)->restore();
+        return $this->getFactory()->createDumper($configDataProvider)->restore();
     }
 
     /**
-     * @param string $volume
-     * @param string $path
-     * @param string $version
+     * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function dumpToSsh(string $volume, string $path, string $version, string $datapath)
+    public function clear(DumperConfigDataProvider $configDataProvider)
     {
-        return $this->getFactory()->createDumper($volume, $path, 'ssh', $version, $datapath)->dump();
-    }
-
-    /**
-     * @param string $volume
-     * @param string $path
-     * @param string $version
-     *
-     * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
-     */
-    public function restoreToSsh(string $volume, string $path, string $version, string $datapath)
-    {
-        return $this->getFactory()->createDumper($volume, $path, 'ssh', $version, $datapath)->restore();
+        return $this->getFactory()->createDumper($configDataProvider)->clear();
     }
 }

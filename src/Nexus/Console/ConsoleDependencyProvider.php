@@ -7,6 +7,7 @@ namespace Nexus\Console;
 
 use Nexus\DynamicModules\Communication\Provider\CommandProvider as DynamicModulesCommandProvider;
 use Xervice\Console\ConsoleDependencyProvider as XerviceConsoleDependencyProvider;
+use Xervice\DataProvider\Console\GenerateCommand;
 
 class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
 {
@@ -20,7 +21,9 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
 
     private function getDockerClientCommands()
     {
-        $commands = [];
+        $commands = [
+            new GenerateCommand()
+        ];
 
         foreach ($this->getCommandProvider() as $provider) {
             $commands = $provider->provideCommands($commands);

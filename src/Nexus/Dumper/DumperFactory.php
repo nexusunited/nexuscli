@@ -4,6 +4,7 @@
 namespace Nexus\Dumper;
 
 
+use DataProvider\DumperConfigDataProvider;
 use Nexus\Dumper\Business\Dumper;
 use Xervice\Core\Factory\AbstractFactory;
 
@@ -21,18 +22,16 @@ class DumperFactory extends AbstractFactory
      * @return \Nexus\Dumper\Business\Dumper
      * @throws \Xervice\Config\Exception\ConfigNotFound
      */
-    public function createDumper(string $volume, string $path, string $engine, string $version)
+    public function createDumper(DumperConfigDataProvider $configDataProvider)
     {
+        $configDataProvider->setSshHost($this->getConfig()->getSshHost());
+        $configDataProvider->setSshUser($this->getConfig()->getSshUser());
+        $configDataProvider->setProject($this->getConfig()->getProject());
+        $configDataProvider->setImageName($this->getConfig()->getImageName());
+        $configDataProvider->setDumpDirectory($this->getConfig()->getDumpDirectory());
+
         return new Dumper(
-            $volume,
-            $path,
-            $this->getConfig()->getSshHost(),
-            $this->getConfig()->getSshUser(),
-            $engine,
-            $this->getConfig()->getProject(),
-            $version,
-            $this->getConfig()->getImageName(),
-            $this->getConfig()->getDumpDirectory(),
+            $configDataProvider,
             $this->getDockerFacade()
         );
     }

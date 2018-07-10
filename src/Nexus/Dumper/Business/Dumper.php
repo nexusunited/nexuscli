@@ -4,54 +4,15 @@
 namespace Nexus\Dumper\Business;
 
 
+use DataProvider\DumperConfigDataProvider;
 use Nexus\DockerClient\DockerClientFacade;
 
 class Dumper
 {
     /**
-     * @var string
+     * @var DumperConfigDataProvider
      */
-    private $volume;
-
-    /**
-     * @var string
-     */
-    private $path;
-
-    /**
-     * @var string
-     */
-    private $sshHost;
-
-    /**
-     * @var string
-     */
-    private $sshUser;
-
-    /**
-     * @var string
-     */
-    private $engine;
-
-    /**
-     * @var string
-     */
-    private $project;
-
-    /**
-     * @var string
-     */
-    private $version;
-
-    /**
-     * @var string
-     */
-    private $imageName;
-
-    /**
-     * @var string
-     */
-    private $dumpDirectory;
+    private $configDataProvider;
 
     /**
      * @var DockerClientFacade
@@ -61,38 +22,14 @@ class Dumper
     /**
      * Dumper constructor.
      *
-     * @param string $volume
-     * @param string $path
-     * @param string $sshHost
-     * @param string $sshUser
-     * @param string $engine
-     * @param string $project
-     * @param string $version
-     * @param string $imageName
-     * @param string $dumpDirectory
-     * @param \Nexus\DockerClient\DockerClientFacade $dockerFacade
+     * @param DumperConfigDataProvider $configDataProvider
+     * @param DockerClientFacade $dockerFacade
      */
     public function __construct(
-        string $volume,
-        string $path,
-        string $sshHost,
-        string $sshUser,
-        string $engine,
-        string $project,
-        string $version,
-        string $imageName,
-        string $dumpDirectory,
+        DumperConfigDataProvider $configDataProvider,
         DockerClientFacade $dockerFacade
     ) {
-        $this->volume = $volume;
-        $this->path = $path;
-        $this->sshHost = $sshHost;
-        $this->sshUser = $sshUser;
-        $this->engine = $engine;
-        $this->project = $project;
-        $this->version = $version;
-        $this->imageName = $imageName;
-        $this->dumpDirectory = $dumpDirectory;
+        $this->configDataProvider = $configDataProvider;
         $this->dockerFacade = $dockerFacade;
     }
 
@@ -133,16 +70,16 @@ class Dumper
     {
         $command = sprintf(
             'run --rm -v %s:%s -v %s:/dump -e SSHHOST=%s -e SSHUSER=%s -e ENGINE=%s -e PROJECT=%s -e VERSION=%s -e DATAPATH=%s %s %s',
-            $this->volume,
-            $this->path,
-            $this->dumpDirectory,
-            $this->sshHost,
-            $this->sshUser,
-            $this->engine,
-            $this->project,
-            $this->version,
-            $this->path,
-            $this->imageName,
+            $this->configDataProvider->getVolume(),
+            $this->configDataProvider->getPath(),
+            $this->configDataProvider->getDumpDirectory(),
+            $this->configDataProvider->getSshHost(),
+            $this->configDataProvider->getSshUser(),
+            $this->configDataProvider->getEngine(),
+            $this->configDataProvider->getProject(),
+            $this->configDataProvider->getVersion(),
+            $this->configDataProvider->getPath(),
+            $this->configDataProvider->getImageName(),
             $type
         );
         return $command;

@@ -4,6 +4,7 @@
 namespace Nexus\Dumper\Communication\Command;
 
 
+use DataProvider\DumperConfigDataProvider;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -34,11 +35,13 @@ class DumpLocalCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $this->getFacade()->dumpToLocal(
-            $input->getArgument('volume'),
-            $input->getArgument('path'),
-            $input->getArgument('version')
-        );
+        $configDataProvider = new DumperConfigDataProvider();
+        $configDataProvider->setVolume($input->getArgument('volume'));
+        $configDataProvider->setPath($input->getArgument('path'));
+        $configDataProvider->setVersion($input->getArgument('version'));
+        $configDataProvider->setEngine('default');
+
+        $this->getFacade()->dump($configDataProvider);
     }
 
 }

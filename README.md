@@ -10,7 +10,6 @@ Installation
 composer global require nexusnetsoftgmbh/nexuscli
 ```
 
-
 Configuration
 --------------
 
@@ -22,8 +21,19 @@ There you have to place a "config_default.php" file with that content:
 use Nexus\CustomCommand\CustomCommandConfig;
 use Nexus\Dumper\DumperConfig;
 use Xervice\Core\CoreConfig;
+use Xervice\DataProvider\DataProviderConfig;
 
 $config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
+$config[CoreConfig::ADDITIONAL_LAYER_NAMESPACES] = [
+    'Project'
+];
+
+$config[DataProviderConfig::DATA_PROVIDER_GENERATED_PATH] = dirname(__DIR__) . '/_Generated';
+$config[DataProviderConfig::DATA_PROVIDER_PATHS] = [
+    dirname(__DIR__) . '/src/Nexus/*/Schema/',
+    dirname(__DIR__) . '/vendor/xervice/*/src/Xervice/*/Schema/',
+    dirname(__DIR__) . '/vendor/nexusnetsoftgmbh/*/src/*/*/Schema/'
+];
 
 $config[DumperConfig::SSH_HOST] = '5.9.82.139';
 $config[DumperConfig::SSH_USER] = 'nxsdocker';
@@ -32,6 +42,17 @@ $config[DumperConfig::IMAGE_NAME] = 'nxs-docker-dumper';
 $config[DumperConfig::DUMP_DIRECTORY] = dirname(__DIR__) . '/dump';
 
 $config[CustomCommandConfig::COMMAND_PATH] = dirname(__DIR__) . '/nxscli/commands';
+```
+
+DataProvider (DTO)
+----------------
+
+NEXUS CLI use dataprovider classes to transfer informations. For that you must create a directory "_Generated" in your project directory next to the composer.json file.
+If you want to use another directory, you have to change the directory path in your config_default.php and in the autoloading config in your composer.json file.
+
+Before using the NEXUS CLI you must generate the dataprovider. For that you can use a command:
+```
+vendor/bin/nxscli dataprovider:generate
 ```
 
 Usage
@@ -57,7 +78,7 @@ You can create your own nxscli. For that you have to create an "composer.json" f
   "autoload": {
     "psr-4": {
       "NexusTest\\": "tests/Nexus/",
-      "DataProvider\\": "src/Generated/"
+      "DataProvider\\": "_Generated/"
     },
     "psr-0": {
       "Nexus\\": "src/"

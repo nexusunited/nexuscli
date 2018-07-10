@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<DataProviders
+  xmlns="xervice:dataprovider-01"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="xervice:dataprovider-01 http://static.xervice.online/schema/dataprovider.schema.xsd"
+>
+
+    <DataProvider name="DumperConfig">
+        <DataElement name="Volume" type="string"/>
+        <DataElement name="Path" type="string"/>
+        <DataElement name="SshHost" type="string"/>
+        <DataElement name="SshUser" type="string"/>
+        <DataElement name="Engine" default="default" type="string"/>
+        <DataElement name="Project" type="string"/>
+        <DataElement name="Version" type="string"/>
+        <DataElement name="ImageName" type="string"/>
+        <DataElement name="DumpDirectory" type="string"/>
+    </DataProvider>
+
+</DataProviders>

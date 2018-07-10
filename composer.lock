@@ -4,8 +4,152 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "aa7657058f16dca6f6c1f58f999255fc",
+    "content-hash": "6a1479999de7a2e213d4da5936fc5a68",
     "packages": [
+        {
+            "name": "nette/php-generator",
+            "version": "v3.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/php-generator.git",
+                "reference": "ee40f8b339410a1260f8769ca2ecc98fabcbe44f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/php-generator/zipball/ee40f8b339410a1260f8769ca2ecc98fabcbe44f",
+                "reference": "ee40f8b339410a1260f8769ca2ecc98fabcbe44f",
+                "shasum": ""
+            },
+            "require": {
+                "nette/utils": "^2.4.2 || ~3.0.0",
+                "php": ">=7.1"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "^2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.1-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🐘 Nette PHP Generator: generates neat PHP code for you. Supports new PHP 7.2 features.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "code",
+                "nette",
+                "php",
+                "scaffolding"
+            ],
+            "time": "2018-04-26T16:49:08+00:00"
+        },
+        {
+            "name": "nette/utils",
+            "version": "v2.5.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nette/utils.git",
+                "reference": "183069866dc477fcfbac393ed486aaa6d93d19a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nette/utils/zipball/183069866dc477fcfbac393ed486aaa6d93d19a5",
+                "reference": "183069866dc477fcfbac393ed486aaa6d93d19a5",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.6.0"
+            },
+            "conflict": {
+                "nette/nette": "<2.2"
+            },
+            "require-dev": {
+                "nette/tester": "~2.0",
+                "tracy/tracy": "^2.3"
+            },
+            "suggest": {
+                "ext-gd": "to use Image",
+                "ext-iconv": "to use Strings::webalize() and toAscii()",
+                "ext-intl": "for script transliteration in Strings::webalize() and toAscii()",
+                "ext-json": "to use Nette\\Utils\\Json",
+                "ext-mbstring": "to use Strings::lower() etc...",
+                "ext-xml": "to use Strings::length() etc. when mbstring is not available"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.5-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ],
+                "files": [
+                    "src/loader.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause",
+                "GPL-2.0",
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "David Grudl",
+                    "homepage": "https://davidgrudl.com"
+                },
+                {
+                    "name": "Nette Community",
+                    "homepage": "https://nette.org/contributors"
+                }
+            ],
+            "description": "🛠 Nette Utils: lightweight utilities for string & array manipulation, image handling, safe JSON encoding/decoding, validation, slug or strong password generating etc.",
+            "homepage": "https://nette.org",
+            "keywords": [
+                "array",
+                "core",
+                "datetime",
+                "images",
+                "json",
+                "nette",
+                "paginator",
+                "password",
+                "slugify",
+                "string",
+                "unicode",
+                "utf-8",
+                "utility",
+                "validation"
+            ],
+            "time": "2018-05-02T17:16:08+00:00"
+        },
         {
             "name": "pimple/pimple",
             "version": "v3.2.3",
@@ -283,16 +427,16 @@
         },
         {
             "name": "xervice/config",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/config.git",
-                "reference": "8af94c5b1918a31403d49e23aa1849d465af9a78"
+                "reference": "6c994780fb152d39c09f41878f860f2f715db7c2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/config/zipball/8af94c5b1918a31403d49e23aa1849d465af9a78",
-                "reference": "8af94c5b1918a31403d49e23aa1849d465af9a78",
+                "url": "https://api.github.com/repos/xervice/config/zipball/6c994780fb152d39c09f41878f860f2f715db7c2",
+                "reference": "6c994780fb152d39c09f41878f860f2f715db7c2",
                 "shasum": ""
             },
             "require-dev": {
@@ -319,20 +463,20 @@
                 }
             ],
             "description": "Config environment to xervice components",
-            "time": "2018-07-05T08:14:26+00:00"
+            "time": "2018-07-09T06:57:35+00:00"
         },
         {
             "name": "xervice/console",
-            "version": "1.0.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/console.git",
-                "reference": "99339267476718d75e59ae8f0b04347d8d09ddbc"
+                "reference": "85a11127181d91e8bc7592e38de7c71a2a76f5f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/console/zipball/99339267476718d75e59ae8f0b04347d8d09ddbc",
-                "reference": "99339267476718d75e59ae8f0b04347d8d09ddbc",
+                "url": "https://api.github.com/repos/xervice/console/zipball/85a11127181d91e8bc7592e38de7c71a2a76f5f9",
+                "reference": "85a11127181d91e8bc7592e38de7c71a2a76f5f9",
                 "shasum": ""
             },
             "require": {
@@ -365,20 +509,20 @@
                     "email": "contact@mibexx.de"
                 }
             ],
-            "time": "2018-07-05T08:21:43+00:00"
+            "time": "2018-07-09T06:58:49+00:00"
         },
         {
             "name": "xervice/core",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/xervice/core.git",
-                "reference": "e65987a2b85ab306352a3db67074fec3edaacbbc"
+                "reference": "d4d41786e096e4edf2054fc9cb56fd5c0a7350fb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/xervice/core/zipball/e65987a2b85ab306352a3db67074fec3edaacbbc",
-                "reference": "e65987a2b85ab306352a3db67074fec3edaacbbc",
+                "url": "https://api.github.com/repos/xervice/core/zipball/d4d41786e096e4edf2054fc9cb56fd5c0a7350fb",
+                "reference": "d4d41786e096e4edf2054fc9cb56fd5c0a7350fb",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +555,53 @@
                 }
             ],
             "description": "Xervice core functionality",
-            "time": "2018-07-05T12:01:59+00:00"
+            "time": "2018-07-09T06:58:11+00:00"
+        },
+        {
+            "name": "xervice/data-provider",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xervice/data-provider.git",
+                "reference": "541da2f7a3bdf985e32305e277aadd6e333477f5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xervice/data-provider/zipball/541da2f7a3bdf985e32305e277aadd6e333477f5",
+                "reference": "541da2f7a3bdf985e32305e277aadd6e333477f5",
+                "shasum": ""
+            },
+            "require": {
+                "nette/php-generator": "3.1.*",
+                "php": ">=7.1.0",
+                "symfony/finder": "^4.1.1",
+                "xervice/console": "^1.0.0"
+            },
+            "require-dev": {
+                "codeception/codeception": "*",
+                "symfony/var-dumper": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "XerviceTest\\": "tests/Xervice/",
+                    "DataProvider\\": "src/Generated/"
+                },
+                "psr-0": {
+                    "Xervice\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mike Bertram",
+                    "email": "contact@mibexx.de"
+                }
+            ],
+            "time": "2018-07-09T06:59:14+00:00"
         }
     ],
     "packages-dev": [
