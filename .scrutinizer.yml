@@ -1,6 +1,12 @@
 filter:
+  paths:
+    - "src/"
+
+  excluded_paths:
+    - "tests/"
+
   dependency_paths:
-    - "tests/_support/_generated/*"
+    - "vendor/"
 
 build:
   environment:
