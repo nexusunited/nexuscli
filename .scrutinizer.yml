@@ -1,23 +1,26 @@
 filter:
   paths:
-    - "src/"
-
-  excluded_paths:
-    - "tests/"
-
-  dependency_paths:
-    - "vendor/"
+    - src/
 
 build:
   environment:
-    php: '7.1'
+    php: 7.1
 
-  nodes:
-    analysis:
-      tests:
-        override:
-          -
-            command: 'vendor/bin/codecept run --coverage --coverage-xml'
-            coverage:
-              file: 'tests/_output/coverage.xml'
-              format: 'clover'
+
+  tests:
+    before:
+      - 'bin/nxscli da:ge'
+    override:
+      -
+        command: 'vendor/bin/codecept run --coverage --coverage-xml'
+        coverage:
+          file: 'tests/_output/coverage.xml'
+          format: 'clover'
+
+checks:
+    php: true
+coding_style:
+    php:
+        spaces:
+            around_operators:
+                concatenation: true

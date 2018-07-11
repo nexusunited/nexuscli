@@ -36,11 +36,12 @@ class CommandHydrator implements CommandHydratorInterface
         foreach ($this->finder->getModuleList() as $module) {
             $moduleName = basename($module);
 
-            if (!in_array($moduleName, $modulesDone)) {
+            if (!\in_array($moduleName, $modulesDone, true)) {
                 $facade = Locator::getInstance()->{$moduleName}()->facade();
                 if (method_exists($facade, 'getCommands')) {
                     $commands = array_merge($commands, $facade->getCommands());
                 }
+                $modulesDone[] = $moduleName;
             }
         }
 
