@@ -63,10 +63,12 @@ class ModuleFinder implements ModuleFinderInterface
 
         foreach ($this->namespaces as $namespace) {
             $directories[] = $this->applicationPath . '/src/' . $namespace;
+            $directories[] = $this->applicationPath . '/cli/' . $namespace;
             $directories[] = $this->applicationPath . '/vendor/*/*/src/' . $namespace;
 
             if ($this->applicationPath !== $clipath) {
                 $directories[] = $clipath . '/src/' . $namespace;
+                $directories[] = $clipath . '/cli/' . $namespace;
                 $directories[] = $clipath . '/vendor/*/*/src/' . $namespace;
             }
         }
