@@ -4,10 +4,12 @@
 namespace Nexus\DockerClient;
 
 
+use Nexus\DockerClient\Communication\Command\Compose\DockerComposePullCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeRmCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeUpCommand;
 use Nexus\DockerClient\Communication\Command\Container\StartContainerCommand;
 use Nexus\DockerClient\Communication\Command\Container\StopContainerCommand;
+use Nexus\DockerClient\Communication\Command\Copy\DockerCpCommand;
 use Nexus\DockerClient\Communication\Command\Exec\DockerExecCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeCreateCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeRemoveCommand;
@@ -43,11 +45,13 @@ class DockerClientDependencyProvider extends AbstractProvider
         return [
             new DockerComposeUpCommand(),
             new DockerComposeRmCommand(),
+            new DockerComposePullCommand(),
             new VolumeCreateCommand(),
             new VolumeRemoveCommand(),
             new DockerExecCommand(),
             new StartContainerCommand(),
-            new StopContainerCommand()
+            new StopContainerCommand(),
+            new DockerCpCommand()
         ];
     }
 
