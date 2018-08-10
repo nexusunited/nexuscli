@@ -24,7 +24,6 @@ class CommandProvider extends AbstractWithLocator implements CommandProviderInte
      *
      * @return array
      * @throws \Core\Locator\Dynamic\ServiceNotParseable
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function provideCommands(array $commands): array
     {

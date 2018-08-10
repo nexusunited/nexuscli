@@ -14,7 +14,6 @@ class CustomCommandConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getCommandPath()
     {

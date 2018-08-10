@@ -26,7 +26,6 @@ class DumperFacade extends AbstractFacade
      * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function dump(DumperConfigDataProvider $configDataProvider)
     {
@@ -37,7 +36,6 @@ class DumperFacade extends AbstractFacade
      * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function restore(DumperConfigDataProvider $configDataProvider)
     {
@@ -48,7 +46,6 @@ class DumperFacade extends AbstractFacade
      * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function clear(DumperConfigDataProvider $configDataProvider)
     {

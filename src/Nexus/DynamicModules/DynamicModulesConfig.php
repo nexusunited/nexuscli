@@ -14,7 +14,6 @@ class DynamicModulesConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getCommandProviderFilter()
     {
@@ -23,7 +22,6 @@ class DynamicModulesConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getApplicationPath()
     {
@@ -32,7 +30,6 @@ class DynamicModulesConfig extends AbstractConfig
 
     /**
      * @return array
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getNamespaces() : array
     {

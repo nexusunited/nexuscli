@@ -20,7 +20,6 @@ class DumperConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getSshHost()
     {
@@ -29,7 +28,6 @@ class DumperConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getSshUser()
     {
@@ -38,7 +36,6 @@ class DumperConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getProject()
     {
@@ -47,7 +44,6 @@ class DumperConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getImageName()
     {
@@ -56,7 +52,6 @@ class DumperConfig extends AbstractConfig
 
     /**
      * @return string
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getDumpDirectory()
     {

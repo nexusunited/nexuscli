@@ -15,7 +15,7 @@ class DynamicModulesDependencyProvider extends AbstractProvider
     /**
      * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
      */
-    public function handleDependencies(DependencyProviderInterface $container)
+    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
     {
         // TODO: Implement handleDependencies() method.
     }

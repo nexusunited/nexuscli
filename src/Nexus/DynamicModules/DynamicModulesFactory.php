@@ -17,7 +17,6 @@ class DynamicModulesFactory extends AbstractFactory
 {
     /**
      * @return \Nexus\DynamicModules\Business\Hydrator\CommandHydrator
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createHydrator()
     {
@@ -28,7 +27,6 @@ class DynamicModulesFactory extends AbstractFactory
 
     /**
      * @return \Nexus\DynamicModules\Business\Finder\ModuleFinder
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createFinder() : ModuleFinderInterface
     {

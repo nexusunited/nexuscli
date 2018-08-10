@@ -15,20 +15,20 @@ class CustomCommandDependencyProvider extends AbstractProvider
     public const SHELL_FACADE = 'shell.facade';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
+     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProviuder
      */
-    public function handleDependencies(DependencyProviderInterface $container)
+    public function handleDependencies(DependencyProviderInterface $dependencyProviuder): void
     {
-        $this->addShellFacade($container);
+        $this->addShellFacade($dependencyProviuder);
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
+     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProviuder
      */
-    private function addShellFacade(DependencyProviderInterface $container): void
+    private function addShellFacade(DependencyProviderInterface $dependencyProviuder): void
     {
-        $container[self::SHELL_FACADE] = function(DependencyProviderInterface $container) {
-            return $container->getLocator()->shell()->facade();
+        $dependencyProviuder[self::SHELL_FACADE] = function(DependencyProviderInterface $dependencyProviuder) {
+            return $dependencyProviuder->getLocator()->shell()->facade();
         };
     }
 }

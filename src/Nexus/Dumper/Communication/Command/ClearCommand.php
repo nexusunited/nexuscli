@@ -37,7 +37,6 @@ class ClearCommand extends AbstractCommand
      * @return int|null|void
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      * @throws \Core\Locator\Dynamic\ServiceNotParseable
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {

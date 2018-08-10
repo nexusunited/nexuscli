@@ -17,7 +17,6 @@ class DumperFactory extends AbstractFactory
      * @param \DataProvider\DumperConfigDataProvider $configDataProvider
      *
      * @return \Nexus\Dumper\Business\Dumper
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createDumper(DumperConfigDataProvider $configDataProvider)
     {

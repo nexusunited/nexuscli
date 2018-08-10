@@ -31,7 +31,6 @@ class DumpLocalCommand extends AbstractCommand
      *
      * @return int|null|void
      * @throws \Core\Locator\Dynamic\ServiceNotParseable
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {

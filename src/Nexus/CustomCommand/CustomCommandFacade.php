@@ -37,7 +37,6 @@ class CustomCommandFacade extends AbstractFacade
 
     /**
      * @return array
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function getCommands()
     {

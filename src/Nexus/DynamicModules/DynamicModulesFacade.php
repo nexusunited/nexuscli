@@ -17,7 +17,6 @@ class DynamicModulesFacade extends AbstractFacade
      * @param array $commands
      *
      * @return array
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function hydrateCommands(array $commands)
     {

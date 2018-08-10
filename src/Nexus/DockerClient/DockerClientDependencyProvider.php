@@ -24,13 +24,13 @@ class DockerClientDependencyProvider extends AbstractProvider
     public const COMMAND_LIST = 'command.list';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
+     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
      */
-    public function handleDependencies(DependencyProviderInterface $container)
+    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
     {
-        $this->addShellFacade($container);
+        $this->addShellFacade($dependencyProvider);
 
-        $container[self::COMMAND_LIST] = function(DependencyProviderInterface $container) {
+        $dependencyProvider[self::COMMAND_LIST] = function(DependencyProviderInterface $dependencyProvider) {
             return $this->getCommandList();
         };
     }
@@ -52,12 +52,12 @@ class DockerClientDependencyProvider extends AbstractProvider
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $container
+     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
      */
-    private function addShellFacade(DependencyProviderInterface $container): void
+    private function addShellFacade(DependencyProviderInterface $dependencyProvider): void
     {
-        $container[self::SHELL_FACADE] = function(DependencyProviderInterface $container) {
-            return $container->getLocator()->shell()->facade();
+        $dependencyProvider[self::SHELL_FACADE] = function(DependencyProviderInterface $dependencyProvider) {
+            return $dependencyProvider->getLocator()->shell()->facade();
         };
     }
 }

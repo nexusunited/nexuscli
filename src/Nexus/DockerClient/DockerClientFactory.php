@@ -15,7 +15,6 @@ class DockerClientFactory extends AbstractFactory
 {
     /**
      * @return \Nexus\DockerClient\Business\DockerCompose
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createDockerCompose()
     {
@@ -27,7 +26,6 @@ class DockerClientFactory extends AbstractFactory
 
     /**
      * @return \Nexus\DockerClient\Business\Docker
-     * @throws \Xervice\Config\Exception\ConfigNotFound
      */
     public function createDocker()
     {
