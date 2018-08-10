@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nexus\DockerClient\Communication\Command\Volume;
+namespace Nexus\DockerClient\Communication\Command\Restart;
 
 
 use Symfony\Component\Console\Input\InputArgument;
@@ -12,15 +12,14 @@ use Xervice\Console\Command\AbstractCommand;
 /**
  * @method \Nexus\DockerClient\DockerClientFacade getFacade()
  */
-class VolumeRemoveCommand extends AbstractCommand
+class DockerRestartCommand extends AbstractCommand
 {
     protected function configure()
     {
         $this
-            ->setName('docker:volume:rm')
-            ->setDescription('Remove a docker volume')
-            ->addArgument('names', InputArgument::IS_ARRAY, 'Volume names seperated by space')
-        ;
+            ->setName('docker:restart')
+            ->setDescription('Create a docker volume')
+            ->addArgument('container', InputArgument::REQUIRED, 'Container name or id');
     }
 
     /**
@@ -32,20 +31,17 @@ class VolumeRemoveCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $names = $input->getArgument('names');
-        $response = '';
+        $command = sprintf(
+            'restart %s',
+            $input->getArgument('container')
+        );
 
-        foreach ($names as $name) {
-            $command = sprintf(
-                'volume rm %s',
-                $name
-            );
-
-            $response .= $this->getFacade()->runDocker($command);
-        }
+        $response = $this->getFacade()->runDocker($command);
 
         if ($output->isVerbose()) {
             $output->writeln($response);
         }
     }
+
+
 }

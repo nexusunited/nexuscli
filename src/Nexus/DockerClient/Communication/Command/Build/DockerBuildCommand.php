@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Nexus\DockerClient\Communication\Command\Volume;
+namespace Nexus\DockerClient\Communication\Command\Build;
 
 
 use Symfony\Component\Console\Input\InputArgument;
@@ -12,15 +12,15 @@ use Xervice\Console\Command\AbstractCommand;
 /**
  * @method \Nexus\DockerClient\DockerClientFacade getFacade()
  */
-class VolumeRemoveCommand extends AbstractCommand
+class DockerBuildCommand extends AbstractCommand
 {
     protected function configure()
     {
         $this
-            ->setName('docker:volume:rm')
-            ->setDescription('Remove a docker volume')
-            ->addArgument('names', InputArgument::IS_ARRAY, 'Volume names seperated by space')
-        ;
+            ->setName('docker:build')
+            ->setDescription('Build a docker image')
+            ->addArgument('directory', InputArgument::REQUIRED, 'Build directory')
+            ->addArgument('image', InputArgument::REQUIRED, 'Image name');
     }
 
     /**
@@ -32,20 +32,18 @@ class VolumeRemoveCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $names = $input->getArgument('names');
-        $response = '';
+        $command = sprintf(
+            'build %s -t %s',
+            $input->getArgument('directory'),
+            $input->getArgument('image')
+        );
 
-        foreach ($names as $name) {
-            $command = sprintf(
-                'volume rm %s',
-                $name
-            );
-
-            $response .= $this->getFacade()->runDocker($command);
-        }
+        $response = $this->getFacade()->runDocker($command);
 
         if ($output->isVerbose()) {
             $output->writeln($response);
         }
     }
+
+
 }

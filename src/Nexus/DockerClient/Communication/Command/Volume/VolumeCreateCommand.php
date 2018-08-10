@@ -19,8 +19,7 @@ class VolumeCreateCommand extends AbstractCommand
         $this
             ->setName('docker:volume:create')
             ->setDescription('Create a docker volume')
-            ->addArgument('name', InputArgument::REQUIRED, 'Volume name')
-        ;
+            ->addArgument('names', InputArgument::IS_ARRAY, 'Volume names seperated by space');
     }
 
     /**
@@ -32,14 +31,17 @@ class VolumeCreateCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $name = $input->getArgument('name');
+        $names = $input->getArgument('names');
 
-        $command = sprintf(
-            'volume create %s',
-            $name
-        );
+        $response = '';
+        foreach ($names as $name) {
+            $command = sprintf(
+                'volume create %s',
+                $name
+            );
 
-        $response = $this->getFacade()->runDocker($command);
+            $response .= $this->getFacade()->runDocker($command);
+        }
 
         if ($output->isVerbose()) {
             $output->writeln($response);

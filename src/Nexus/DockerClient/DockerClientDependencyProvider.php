@@ -4,6 +4,7 @@
 namespace Nexus\DockerClient;
 
 
+use Nexus\DockerClient\Communication\Command\Build\DockerBuildCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposePullCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeRmCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeUpCommand;
@@ -11,6 +12,7 @@ use Nexus\DockerClient\Communication\Command\Container\StartContainerCommand;
 use Nexus\DockerClient\Communication\Command\Container\StopContainerCommand;
 use Nexus\DockerClient\Communication\Command\Copy\DockerCpCommand;
 use Nexus\DockerClient\Communication\Command\Exec\DockerExecCommand;
+use Nexus\DockerClient\Communication\Command\Restart\DockerRestartCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeCreateCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeRemoveCommand;
 use Xervice\Core\Dependency\DependencyProviderInterface;
@@ -39,6 +41,7 @@ class DockerClientDependencyProvider extends AbstractProvider
 
     /**
      * @return array
+     * @throws \Symfony\Component\Console\Exception\LogicException
      */
     protected function getCommandList()
     {
@@ -51,7 +54,9 @@ class DockerClientDependencyProvider extends AbstractProvider
             new DockerExecCommand(),
             new StartContainerCommand(),
             new StopContainerCommand(),
-            new DockerCpCommand()
+            new DockerCpCommand(),
+            new DockerBuildCommand(),
+            new DockerRestartCommand()
         ];
     }
 
