@@ -4,31 +4,37 @@
 namespace Nexus\CustomCommand;
 
 
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
+use Xervice\Core\Business\Model\Dependency\Provider\DependencyProviderInterface;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class CustomCommandDependencyProvider extends AbstractProvider
+class CustomCommandDependencyProvider extends AbstractDependencyProvider
 {
     public const SHELL_FACADE = 'shell.facade';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProviuder
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    public function handleDependencies(DependencyProviderInterface $dependencyProviuder): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $this->addShellFacade($dependencyProviuder);
+        $container = $this->addShellFacade($container);
+
+        return $container;
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProviuder
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    private function addShellFacade(DependencyProviderInterface $dependencyProviuder): void
+    protected function addShellFacade(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProviuder[self::SHELL_FACADE] = function(DependencyProviderInterface $dependencyProviuder) {
-            return $dependencyProviuder->getLocator()->shell()->facade();
+        $container[self::SHELL_FACADE] = function(DependencyProviderInterface $container) {
+            return $container->getLocator()->shell()->facade();
         };
+
+        return $container;
     }
 }

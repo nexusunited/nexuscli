@@ -1,6 +1,8 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/../autoload.php';
+use Xervice\Core\Business\Model\Locator\Locator;
 
-Xervice\Core\Locator\Locator::getInstance()->console()->facade()->runApplication();
+require dirname(__DIR__) . '/autoload.php';
+
+Locator::getInstance()->console()->facade()->runApplication();

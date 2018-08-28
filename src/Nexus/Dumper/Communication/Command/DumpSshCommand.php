@@ -1,17 +1,16 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\Dumper\Communication\Command;
-
 
 use DataProvider\DumperConfigDataProvider;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Xervice\Console\Command\AbstractCommand;
+use Xervice\Console\Business\Model\Command\AbstractCommand;
 
 /**
- * @method \Nexus\Dumper\DumperFacade getFacade()
+ * @method \Nexus\Dumper\Business\DumperFacade getFacade()
  */
 class DumpSshCommand extends AbstractCommand
 {
@@ -30,7 +29,6 @@ class DumpSshCommand extends AbstractCommand
      * @param \Symfony\Component\Console\Output\OutputInterface $output
      *
      * @return int|null|void
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {

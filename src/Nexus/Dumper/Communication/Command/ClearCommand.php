@@ -1,21 +1,19 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\Dumper\Communication\Command;
-
 
 use DataProvider\DumperConfigDataProvider;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Xervice\Console\Command\AbstractCommand;
+use Xervice\Console\Business\Model\Command\AbstractCommand;
 
 /**
- * @method \Nexus\Dumper\DumperFacade getFacade()
+ * @method \Nexus\Dumper\Business\DumperFacade getFacade()
  */
 class ClearCommand extends AbstractCommand
 {
-
     /**
      *
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
@@ -36,7 +34,6 @@ class ClearCommand extends AbstractCommand
      *
      * @return int|null|void
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
-     * @throws \Core\Locator\Dynamic\ServiceNotParseable
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {

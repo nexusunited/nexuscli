@@ -1,21 +1,16 @@
 <?php
+declare(strict_types=1);
+
 namespace NexusTest\CustomCommand;
 
-use Nexus\CustomCommand\Command\TestRecursiveCommand;
-use Xervice\Core\Locator\Locator;
-use XerviceTest\Console\Command\TestCommand;
+use Xervice\Core\Business\Model\Locator\Dynamic\Business\DynamicBusinessLocator;
 
+/**
+ * @method \Nexus\CustomCommand\Business\CustomCommandFacade getFacade()
+ */
 class FacadeTest extends \Codeception\Test\Unit
 {
-    /**
-     * @var \Nexus\CustomCommand\CustomCommandFacade
-     */
-    private $facade;
-
-    protected function _before()
-    {
-        $this->facade = Locator::getInstance()->customCommand()->facade();
-    }
+    use DynamicBusinessLocator;
 
     /**
      * @group Nexus
@@ -25,7 +20,7 @@ class FacadeTest extends \Codeception\Test\Unit
      */
     public function testHydrateCommandsRecusive()
     {
-        $commands = $this->facade->hydrateCommands([], __DIR__ . '/test', true);
+        $commands = $this->getFacade()->hydrateCommands([], __DIR__ . '/test', true);
 
         $this->assertCount(2, $commands);
 
@@ -47,7 +42,7 @@ class FacadeTest extends \Codeception\Test\Unit
      */
     public function testHydrateCommandsNotRecusive()
     {
-        $commands = $this->facade->hydrateCommands([], __DIR__ . '/test', false);
+        $commands = $this->getFacade()->hydrateCommands([], __DIR__ . '/test', false);
 
         $this->assertCount(1, $commands);
 
@@ -65,7 +60,7 @@ class FacadeTest extends \Codeception\Test\Unit
      */
     public function testHydrateCommandsWithNonExistingDirectory()
     {
-        $commands = $this->facade->hydrateCommands([], __DIR__ . '/notExisting', false);
+        $commands = $this->getFacade()->hydrateCommands([], __DIR__ . '/notExisting', false);
 
         $this->assertCount(0, $commands);
     }

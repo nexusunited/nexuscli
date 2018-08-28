@@ -1,42 +1,39 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\Dumper;
-
 
 use Nexus\Dumper\Communication\Command\DumpLocalCommand;
 use Nexus\Dumper\Communication\Command\DumpSshCommand;
 use Nexus\Dumper\Communication\Command\RestoreLocalCommand;
 use Nexus\Dumper\Communication\Command\RestoreSshCommand;
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class DumperDependencyProvider extends AbstractProvider
+class DumperDependencyProvider extends AbstractDependencyProvider
 {
     public const DOCKER_FACADE = 'docker.facade';
     public const SHELL_FACADE = 'shell.facade';
     public const COMMAND_LIST = 'command.list';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $this->addShellFacade($dependencyProvider);
-        $this->addDockerFacade($dependencyProvider);
+        $container = $this->addShellFacade($container);
+        $container = $this->addDockerFacade($container);
+        $container = $this->addCommandList($container);
 
-        $dependencyProvider[self::COMMAND_LIST] = function(DependencyProviderInterface $dependencyProvider) {
-            return $this->getCommandList();
-        };
+        return $container;
     }
 
     /**
      * @return array
      */
-    protected function getCommandList()
+    protected function getCommandList(): array
     {
         return [
             new DumpLocalCommand(),
@@ -47,22 +44,44 @@ class DumperDependencyProvider extends AbstractProvider
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    private function addShellFacade(DependencyProviderInterface $dependencyProvider): void
+    private function addShellFacade(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::SHELL_FACADE] = function(DependencyProviderInterface $dependencyProvider) {
-            return $dependencyProvider->getLocator()->shell()->facade();
+        $container[self::SHELL_FACADE] = function(DependencyContainerInterface $container) {
+            return $container->getLocator()->shell()->facade();
         };
+
+        return $container;
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    private function addDockerFacade(DependencyProviderInterface $dependencyProvider): void
+    private function addDockerFacade(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::DOCKER_FACADE] = function(DependencyProviderInterface $dependencyProvider) {
-            return $dependencyProvider->getLocator()->dockerClient()->facade();
+        $container[self::DOCKER_FACADE] = function(DependencyContainerInterface $container) {
+            return $container->getLocator()->dockerClient()->facade();
         };
+
+        return $container;
     }
+
+    /**
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
+     */
+    protected function addCommandList(
+        DependencyContainerInterface $container
+    ): DependencyContainerInterface {
+        $container[self::COMMAND_LIST] = function (DependencyContainerInterface $container) {
+            return $this->getCommandList();
+        };
+        return $container;
+}
 }

@@ -8,23 +8,32 @@
     }
   ],
   "require-dev": {
-    "xervice/development": "^0.1.0",
+    "xervice/development": "^1.0.0",
     "codeception/codeception": "*",
-    "symfony/var-dumper": "*"
+    "symfony/var-dumper": "*",
+    "phpstan/phpstan": "*"
   },
   "require": {
     "php": ">=7.1.0",
     "symfony/finder": "^4.1.1",
-    "xervice/data-provider": "^1.5.0"
+    "xervice/core": "^4.0.0",
+    "xervice/data-provider": "^2.0.0"
   },
   "autoload": {
     "psr-4": {
-      "NexusTest\\": "tests/Nexus/",
       "DataProvider\\": "_Generated/"
     },
     "psr-0": {
       "Nexus\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "NexusTest\\": "tests/Nexus/"
+    }
+  },
+  "scripts": {
+    "phpstan": "vendor/bin/phpstan analyse src/Nexus --level=7"
   },
   "bin": ["bin/nxscli"]
 }

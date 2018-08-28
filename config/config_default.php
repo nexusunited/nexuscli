@@ -6,8 +6,8 @@ use Xervice\Core\CoreConfig;
 use Xervice\DataProvider\DataProviderConfig;
 use Xervice\Development\DevelopmentConfig;
 
-$config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
-$config[CoreConfig::ADDITIONAL_LAYER_NAMESPACES] = [
+$config[CoreConfig::PROJECT_NAMESPACES] = [
+    'Nexus',
     'Project'
 ];
 

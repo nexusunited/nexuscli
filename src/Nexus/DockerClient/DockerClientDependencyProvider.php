@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\DockerClient;
-
 
 use Nexus\DockerClient\Communication\Command\Build\DockerBuildCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposePullCommand;
@@ -15,28 +14,25 @@ use Nexus\DockerClient\Communication\Command\Exec\DockerExecCommand;
 use Nexus\DockerClient\Communication\Command\Restart\DockerRestartCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeCreateCommand;
 use Nexus\DockerClient\Communication\Command\Volume\VolumeRemoveCommand;
-use Xervice\Core\Dependency\DependencyProviderInterface;
-use Xervice\Core\Dependency\Provider\AbstractProvider;
+use Xervice\Core\Business\Model\Dependency\DependencyContainerInterface;
+use Xervice\Core\Business\Model\Dependency\Provider\AbstractDependencyProvider;
 
-/**
- * @method \Xervice\Core\Locator\Locator getLocator()
- */
-class DockerClientDependencyProvider extends AbstractProvider
+class DockerClientDependencyProvider extends AbstractDependencyProvider
 {
     public const SHELL_FACADE = 'shell.facade';
-
     public const COMMAND_LIST = 'command.list';
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    public function handleDependencies(DependencyProviderInterface $dependencyProvider): void
+    public function handleDependencies(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $this->addShellFacade($dependencyProvider);
+        $container = $this->addShellFacade($container);
+        $container = $this->addCommandList($container);
 
-        $dependencyProvider[self::COMMAND_LIST] = function(DependencyProviderInterface $dependencyProvider) {
-            return $this->getCommandList();
-        };
+        return $container;
     }
 
     /**
@@ -61,12 +57,31 @@ class DockerClientDependencyProvider extends AbstractProvider
     }
 
     /**
-     * @param \Xervice\Core\Dependency\DependencyProviderInterface $dependencyProvider
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
      */
-    private function addShellFacade(DependencyProviderInterface $dependencyProvider): void
+    private function addShellFacade(DependencyContainerInterface $container): DependencyContainerInterface
     {
-        $dependencyProvider[self::SHELL_FACADE] = function(DependencyProviderInterface $dependencyProvider) {
-            return $dependencyProvider->getLocator()->shell()->facade();
+        $container[self::SHELL_FACADE] = function (DependencyContainerInterface $container) {
+            return $container->getLocator()->shell()->facade();
         };
+
+        return $container;
+    }
+
+    /**
+     * @param \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface $container
+     *
+     * @return \Xervice\Core\Business\Model\Dependency\DependencyContainerInterface
+     */
+    protected function addCommandList(
+        DependencyContainerInterface $container
+    ): DependencyContainerInterface {
+        $container[self::COMMAND_LIST] = function (DependencyContainerInterface $container) {
+            return $this->getCommandList();
+        };
+
+        return $container;
     }
 }

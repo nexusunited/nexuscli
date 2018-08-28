@@ -1,12 +1,10 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\CustomCommand;
 
-
-use Xervice\Config\XerviceConfig;
-use Xervice\Core\Config\AbstractConfig;
-use Xervice\Core\CoreConfig;
+use Xervice\Config\Business\XerviceConfig;
+use Xervice\Core\Business\Model\Config\AbstractConfig;
 
 class CustomCommandConfig extends AbstractConfig
 {

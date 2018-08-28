@@ -1,12 +1,12 @@
 <?php
 namespace NexusTest\Shell;
 
-use Xervice\Core\Locator\Locator;
+use Xervice\Core\Business\Model\Locator\Locator;
 
 class FacadeTest extends \Codeception\Test\Unit
 {
     /**
-     * @var \Nexus\Shell\ShellFacade
+     * @var \Nexus\Shell\Business\ShellFacade
      */
     private $facade;
 

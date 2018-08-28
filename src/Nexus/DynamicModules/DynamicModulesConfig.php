@@ -1,11 +1,10 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\DynamicModules;
 
-
-use Xervice\Config\XerviceConfig;
-use Xervice\Core\Config\AbstractConfig;
+use Xervice\Config\Business\XerviceConfig;
+use Xervice\Core\Business\Model\Config\AbstractConfig;
 use Xervice\Core\CoreConfig;
 
 class DynamicModulesConfig extends AbstractConfig
@@ -15,7 +14,7 @@ class DynamicModulesConfig extends AbstractConfig
     /**
      * @return string
      */
-    public function getCommandProviderFilter()
+    public function getCommandProviderFilter(): string
     {
         return $this->get(self::COMMAND_PROVIDER_FILTER, '*CommandProvider.php');
     }
@@ -23,7 +22,7 @@ class DynamicModulesConfig extends AbstractConfig
     /**
      * @return string
      */
-    public function getApplicationPath()
+    public function getApplicationPath(): string
     {
         return $this->get(XerviceConfig::APPLICATION_PATH);
     }
@@ -31,10 +30,11 @@ class DynamicModulesConfig extends AbstractConfig
     /**
      * @return array
      */
-    public function getNamespaces() : array
+    public function getNamespaces(): array
     {
-        return [
-            $this->get(CoreConfig::PROJECT_LAYER_NAMESPACE)
-        ] + $this->get(CoreConfig::ADDITIONAL_LAYER_NAMESPACES, []);
+        return array_merge(
+            $this->get(CoreConfig::CORE_NAMESPACES),
+            $this->get(CoreConfig::PROJECT_NAMESPACES)
+        );
     }
 }

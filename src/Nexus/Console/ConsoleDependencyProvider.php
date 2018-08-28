@@ -1,25 +1,26 @@
 <?php
-
+declare(strict_types=1);
 
 namespace Nexus\Console;
 
-
-
 use Nexus\DynamicModules\Communication\Provider\CommandProvider as DynamicModulesCommandProvider;
 use Xervice\Console\ConsoleDependencyProvider as XerviceConsoleDependencyProvider;
-use Xervice\DataProvider\Console\GenerateCommand;
-use Xervice\Development\Command\GenerateAutoCompleteCommand;
+use Xervice\DataProvider\Communication\Console\GenerateCommand;
+use Xervice\Development\Communication\Console\Command\GenerateAutoCompleteCommand;
 
 class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
 {
     /**
      * @return array
      */
-    protected function getCommandList() : array
+    protected function getCommandList(): array
     {
         return $this->getDockerClientCommands();
     }
 
+    /**
+     * @return array
+     */
     private function getDockerClientCommands()
     {
         $commands = [
@@ -46,16 +47,16 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
     }
 
     /**
-     * @param $commands
+     * @param array $commands
      *
      * @return array
      * @throws \Symfony\Component\Console\Exception\LogicException
      */
-    private function addDevelopmentCommands($commands): array
+    private function addDevelopmentCommands(array $commands): array
     {
         if (class_exists(GenerateAutoCompleteCommand::class)) {
             $commands[] = new GenerateAutoCompleteCommand();
         }
         return $commands;
-}
+    }
 }
