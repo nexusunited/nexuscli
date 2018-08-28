@@ -8,7 +8,7 @@ use Nexus\Console\Provider\CommandProviderInterface;
 use Xervice\Core\Plugin\AbstractCommunicationPlugin;
 
 /**
- * @method \Nexus\DynamicModules\DynamicModulesFacade getFacade()
+ * @method \Nexus\DynamicModules\Business\DynamicModulesFacade getFacade()
  */
 class CommandProvider extends AbstractCommunicationPlugin implements CommandProviderInterface
 {

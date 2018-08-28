@@ -7,6 +7,7 @@ use Nexus\CustomCommand\Business\Model\Finder\CommandFinder;
 use Nexus\CustomCommand\Business\Model\Finder\CommandFinderInterface;
 use Nexus\CustomCommand\Business\Model\Hydrator\CommandHydrator;
 use Nexus\CustomCommand\Business\Model\Hydrator\CommandHydratorInterface;
+use Nexus\CustomCommand\CustomCommandDependencyProvider;
 use Nexus\Shell\Business\ShellFacade;
 use Xervice\Core\Business\Model\Factory\AbstractBusinessFactory;
 

@@ -13,8 +13,7 @@ $config[CoreConfig::PROJECT_NAMESPACES] = [
 
 $config[DataProviderConfig::DATA_PROVIDER_GENERATED_PATH] = dirname(__DIR__) . '/_Generated';
 $config[DataProviderConfig::DATA_PROVIDER_PATHS] = [
-    dirname(__DIR__) . '/src/Nexus/*/Schema/',
-    dirname(__DIR__) . '/vendor/xervice/*/src/Xervice/*/Schema/'
+    dirname(__DIR__) . '/src/Nexus/*/Schema/'
 ];
 
 $config[DevelopmentConfig::GENERATED_PATH] = dirname(__DIR__) . '/_Generated/Ide';

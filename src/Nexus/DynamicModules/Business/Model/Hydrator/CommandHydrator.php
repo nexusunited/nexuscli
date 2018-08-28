@@ -31,7 +31,7 @@ class CommandHydrator implements CommandHydratorInterface
      */
     public function hydrateCommands(array $commands) : array
     {
-        $modulesDone = ['Config'];
+        $modulesDone = [];
 
         foreach ($this->finder->getModuleList() as $module) {
             $moduleName = basename($module);
