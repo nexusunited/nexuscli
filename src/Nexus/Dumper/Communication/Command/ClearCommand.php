@@ -15,10 +15,9 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
 class ClearCommand extends AbstractCommand
 {
     /**
-     *
      * @throws \Symfony\Component\Console\Exception\InvalidArgumentException
      */
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('dumper:clear')

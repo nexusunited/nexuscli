@@ -41,12 +41,12 @@ class ModuleFinder implements ModuleFinderInterface
     /**
      * @return array
      */
-    public function getModuleList()
+    public function getModuleList(): array
     {
         $modules = [];
 
         foreach ($this->getSearchDirectories() as $dir) {
-            $modules = array_merge($modules, glob($dir . '/*'));
+            $modules = \array_merge($modules, glob($dir . '/*'));
         }
 
         return $modules;
@@ -59,7 +59,7 @@ class ModuleFinder implements ModuleFinderInterface
     {
         $directories = [];
 
-        $clipath = dirname(dirname(dirname(dirname(dirname(__DIR__)))));
+        $clipath = \dirname(__DIR__, 5);
 
         foreach ($this->namespaces as $namespace) {
             $directories[] = $this->applicationPath . '/src/' . $namespace;

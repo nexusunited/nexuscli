@@ -14,7 +14,7 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class DumpLocalCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('dumper:dump:local')
@@ -36,7 +36,7 @@ class DumpLocalCommand extends AbstractCommand
         $configDataProvider->setVolume($input->getArgument('volume'));
         $configDataProvider->setPath($input->getArgument('path'));
         $configDataProvider->setVersion($input->getArgument('version'));
-        $configDataProvider->setEngine('default');
+        $configDataProvider->setEngine();
 
         $this->getFacade()->dump($configDataProvider);
     }

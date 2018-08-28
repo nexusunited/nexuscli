@@ -18,7 +18,7 @@ class CustomCommandFacade extends AbstractFacade implements CustomCommandFacadeI
      *
      * @return array
      */
-    public function hydrateCommands(array $commands, string $directory, bool $recursive)
+    public function hydrateCommands(array $commands, string $directory, bool $recursive): array
     {
         return $this->getFactory()->createCommandHydrator($directory, $recursive)->hydrateCommands($commands);
     }
@@ -36,7 +36,7 @@ class CustomCommandFacade extends AbstractFacade implements CustomCommandFacadeI
     /**
      * @return array
      */
-    public function getCommands()
+    public function getCommands(): array
     {
         return $this->hydrateCommands(
             [],

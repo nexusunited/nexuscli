@@ -14,7 +14,7 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class DockerExecCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('docker:exec')

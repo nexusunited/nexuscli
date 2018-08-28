@@ -14,7 +14,7 @@ class DockerClientFacade extends AbstractFacade implements DockerClientFacadeInt
     /**
      * @return array
      */
-    public function getCommands()
+    public function getCommands(): array
     {
         return $this->getFactory()->getCommandList();
     }

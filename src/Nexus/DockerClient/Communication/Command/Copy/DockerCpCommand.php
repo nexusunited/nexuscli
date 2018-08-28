@@ -14,7 +14,7 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class DockerCpCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('docker:cp')

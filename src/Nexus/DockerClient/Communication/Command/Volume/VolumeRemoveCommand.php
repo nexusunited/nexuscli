@@ -14,7 +14,7 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class VolumeRemoveCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('docker:volume:rm')
@@ -31,7 +31,7 @@ class VolumeRemoveCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $names = $input->getArgument('names');
+        $names = (array)$input->getArgument('names');
         $response = '';
 
         foreach ($names as $name) {

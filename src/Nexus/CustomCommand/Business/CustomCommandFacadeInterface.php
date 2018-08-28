@@ -17,7 +17,7 @@ interface CustomCommandFacadeInterface
      *
      * @return array
      */
-    public function hydrateCommands(array $commands, string $directory, bool $recursive);
+    public function hydrateCommands(array $commands, string $directory, bool $recursive): array;
 
     /**
      * @param string $command
@@ -29,5 +29,5 @@ interface CustomCommandFacadeInterface
     /**
      * @return array
      */
-    public function getCommands();
+    public function getCommands(): array;
 }

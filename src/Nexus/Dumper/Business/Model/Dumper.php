@@ -36,7 +36,7 @@ class Dumper implements DumperInterface
     /**
      * @return string
      */
-    public function clear()
+    public function clear(): string
     {
         $command = $this->getCommand('clear');
 
@@ -46,7 +46,7 @@ class Dumper implements DumperInterface
     /**
      * @return string
      */
-    public function dump()
+    public function dump(): string
     {
         $command = $this->getCommand('dump');
 
@@ -56,7 +56,7 @@ class Dumper implements DumperInterface
     /**
      * @return string
      */
-    public function restore()
+    public function restore(): string
     {
         $command = $this->getCommand('restore');
 

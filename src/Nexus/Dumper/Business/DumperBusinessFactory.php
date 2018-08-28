@@ -38,7 +38,7 @@ class DumperBusinessFactory extends AbstractBusinessFactory
     /**
      * @return array
      */
-    public function getCommandList()
+    public function getCommandList(): array
     {
         return $this->getDependency(DumperDependencyProvider::COMMAND_LIST);
     }

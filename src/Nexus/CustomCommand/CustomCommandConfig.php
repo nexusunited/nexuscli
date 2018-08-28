@@ -13,7 +13,7 @@ class CustomCommandConfig extends AbstractConfig
     /**
      * @return string
      */
-    public function getCommandPath()
+    public function getCommandPath(): string
     {
         return $this->get(
             self::COMMAND_PATH,

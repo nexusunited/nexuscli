@@ -14,12 +14,13 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class VolumeCreateCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('docker:volume:create')
             ->setDescription('Create a docker volume')
-            ->addArgument('names', InputArgument::IS_ARRAY, 'Volume names seperated by space');
+            ->addArgument('names', InputArgument::IS_ARRAY, 'Volume names seperated by space')
+        ;
     }
 
     /**
@@ -30,7 +31,7 @@ class VolumeCreateCommand extends AbstractCommand
      */
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $names = $input->getArgument('names');
+        $names = (array)$input->getArgument('names');
 
         $response = '';
         foreach ($names as $name) {

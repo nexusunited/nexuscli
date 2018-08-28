@@ -10,5 +10,5 @@ interface DockerComposeInterface
      *
      * @return string
      */
-    public function execute(string $command);
+    public function execute(string $command): string;
 }

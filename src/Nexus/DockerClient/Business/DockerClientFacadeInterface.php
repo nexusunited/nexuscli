@@ -13,7 +13,7 @@ interface DockerClientFacadeInterface
     /**
      * @return array
      */
-    public function getCommands();
+    public function getCommands(): array;
 
     /**
      * @param string $command

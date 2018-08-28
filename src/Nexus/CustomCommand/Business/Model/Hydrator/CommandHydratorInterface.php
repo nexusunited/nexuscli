@@ -9,5 +9,5 @@ interface CommandHydratorInterface
      *
      * @return array
      */
-    public function hydrateCommands(array $commands);
+    public function hydrateCommands(array $commands): array;
 }

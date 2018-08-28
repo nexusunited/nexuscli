@@ -8,15 +8,15 @@ interface DumperInterface
     /**
      * @return string
      */
-    public function clear();
+    public function clear(): string;
 
     /**
      * @return string
      */
-    public function dump();
+    public function dump(): string;
 
     /**
      * @return string
      */
-    public function restore();
+    public function restore(): string;
 }

@@ -41,9 +41,9 @@ class CommandFinder extends Finder implements CommandFinderInterface
     }
 
     /**
-     * @return Finder
+     * @return \Symfony\Component\Finder\Finder
      */
-    public function getCommandClasses()
+    public function getCommandClasses(): Finder
     {
         if (!$this->recursive) {
             $this->depth('== 0');

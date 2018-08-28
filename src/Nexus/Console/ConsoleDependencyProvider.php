@@ -21,7 +21,7 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
     /**
      * @return array
      */
-    private function getDockerClientCommands()
+    private function getDockerClientCommands(): array
     {
         $commands = [
             new GenerateCommand()
@@ -39,7 +39,7 @@ class ConsoleDependencyProvider extends XerviceConsoleDependencyProvider
     /**
      * @return \Nexus\Console\Provider\CommandProviderInterface[]
      */
-    private function getCommandProvider()
+    private function getCommandProvider(): array
     {
         return [
             new DynamicModulesCommandProvider()

@@ -9,5 +9,5 @@ interface ModuleFinderInterface
     /**
      * @return array
      */
-    public function getModuleList();
+    public function getModuleList(): array;
 }

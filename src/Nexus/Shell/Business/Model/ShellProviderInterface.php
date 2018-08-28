@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace Nexus\DockerClient\Business\Model;
+namespace Nexus\Shell\Business\Model;
 
-interface DockerInterface
+interface ShellProviderInterface
 {
     /**
      * @param string $command

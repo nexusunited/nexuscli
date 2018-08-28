@@ -39,7 +39,7 @@ class DockerClientDependencyProvider extends AbstractDependencyProvider
      * @return array
      * @throws \Symfony\Component\Console\Exception\LogicException
      */
-    protected function getCommandList()
+    protected function getCommandList(): array
     {
         return [
             new DockerComposeUpCommand(),

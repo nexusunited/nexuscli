@@ -6,7 +6,7 @@ namespace Nexus\Shell\Business\Model;
 
 use Nexus\Shell\Business\Model\Executor\ExecutorInterface;
 
-class ShellProvider
+class ShellProvider implements ShellProviderInterface
 {
     /**
      * @var \Nexus\Shell\Business\Model\Executor\ExecutorInterface

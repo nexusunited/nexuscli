@@ -14,7 +14,7 @@ use Xervice\Console\Business\Model\Command\AbstractCommand;
  */
 class RestoreLocalCommand extends AbstractCommand
 {
-    protected function configure()
+    protected function configure(): void
     {
         $this
             ->setName('dumper:restore:local')
@@ -36,7 +36,7 @@ class RestoreLocalCommand extends AbstractCommand
         $configDataProvider->setVolume($input->getArgument('volume'));
         $configDataProvider->setPath($input->getArgument('path'));
         $configDataProvider->setVersion($input->getArgument('version'));
-        $configDataProvider->setEngine('default');
+        $configDataProvider->setEngine();
 
         $this->getFacade()->restore($configDataProvider);
     }

@@ -14,7 +14,7 @@ class DockerClientConfig extends AbstractConfig
     /**
      * @return string
      */
-    public function getDockerCommand()
+    public function getDockerCommand(): string
     {
         return $this->get(self::DOCKER_COMMAND, 'docker');
     }
@@ -22,7 +22,7 @@ class DockerClientConfig extends AbstractConfig
     /**
      * @return string
      */
-    public function getDockerComposeCommand()
+    public function getDockerComposeCommand(): string
     {
         return $this->get(self::DOCKER_COMPOSE_COMMAND, 'docker-compose');
     }

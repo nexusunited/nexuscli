@@ -2,6 +2,8 @@
 
 namespace Nexus\CustomCommand\Business\Model\Finder;
 
+use Symfony\Component\Finder\Finder;
+
 interface CommandFinderInterface
 {
     /**
@@ -12,5 +14,5 @@ interface CommandFinderInterface
     /**
      * @return \Symfony\Component\Finder\Finder
      */
-    public function getCommandClasses();
+    public function getCommandClasses(): Finder;
 }

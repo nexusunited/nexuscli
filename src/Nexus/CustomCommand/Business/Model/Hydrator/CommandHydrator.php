@@ -28,7 +28,7 @@ class CommandHydrator implements CommandHydratorInterface
      *
      * @return array
      */
-    public function hydrateCommands(array $commands)
+    public function hydrateCommands(array $commands): array
     {
         if ($this->commandFinder->isDir()) {
             $commands = array_merge($commands, $this->getCommandsFromFinder());
