@@ -23,8 +23,8 @@ use Nexus\Dumper\DumperConfig;
 use Xervice\Core\CoreConfig;
 use Xervice\DataProvider\DataProviderConfig;
 
-$config[CoreConfig::PROJECT_LAYER_NAMESPACE] = 'Nexus';
-$config[CoreConfig::ADDITIONAL_LAYER_NAMESPACES] = [
+$config[CoreConfig::PROJECT_NAMESPACES] = [
+    'Nexus',
     'Project'
 ];
 
@@ -108,7 +108,7 @@ namespace Nexus\CustomCommand\Command;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
-use Xervice\Console\Command\AbstractCommand;
+use Xervice\Console\Business\Model\Command\AbstractCommand;
 
 class LsCommand extends AbstractCommand
 {

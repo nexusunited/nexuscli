@@ -1,26 +1,37 @@
 filter:
-  paths:
-    - src/
+  excluded_paths:
+    - "tests/"
+
+  dependency_paths:
+    - "src/Generated/"
+    - "src/Orm/"
+    - "vendor/"
 
 build:
   environment:
     php: 7.1
 
+    variables:
+      APPLICATION_ENV: scrutinizer
 
   tests:
     before:
-      - 'bin/nxscli da:ge'
+      - 'vendor/bin/xervice de:ge:au'
+      - 'vendor/bin/xervice da:ge'
     override:
       -
         command: 'vendor/bin/codecept run --coverage --coverage-xml'
         coverage:
           file: 'tests/_output/coverage.xml'
           format: 'clover'
+      - php-scrutinizer-run --enable-security-analysis
 
 checks:
-    php: true
+  php:
+    no_exit: false
+
 coding_style:
-    php:
-        spaces:
-            around_operators:
-                concatenation: true
+  php:
+    spaces:
+      around_operators:
+        concatenation: true
