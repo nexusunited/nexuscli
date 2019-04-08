@@ -6,6 +6,7 @@ namespace Nexus\DockerClient;
 use Nexus\DockerClient\Communication\Command\Build\DockerBuildCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposePullCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeRmCommand;
+use Nexus\DockerClient\Communication\Command\Compose\DockerComposeStopCommand;
 use Nexus\DockerClient\Communication\Command\Compose\DockerComposeUpCommand;
 use Nexus\DockerClient\Communication\Command\Container\StartContainerCommand;
 use Nexus\DockerClient\Communication\Command\Container\StopContainerCommand;
@@ -45,6 +46,7 @@ class DockerClientDependencyProvider extends AbstractDependencyProvider
             new DockerComposeUpCommand(),
             new DockerComposeRmCommand(),
             new DockerComposePullCommand(),
+            new DockerComposeStopCommand(),
             new VolumeCreateCommand(),
             new VolumeRemoveCommand(),
             new DockerExecCommand(),
